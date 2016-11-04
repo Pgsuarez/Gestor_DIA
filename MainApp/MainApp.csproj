@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{910BC21A-8F7A-46C9-B021-84489748A568}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MainApp</RootNamespace>
+    <AssemblyName>MainApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DIAGraficos\DIAGraficos.csproj">
+      <Project>{463ED88B-60F6-445B-ADE0-E934C784C3FC}</Project>
+      <Name>DIAGraficos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloEjercicio\ModuloEjercicio.csproj">
+      <Project>{2F78EC59-FBA1-4BE3-9DDA-903E013BFD07}</Project>
+      <Name>ModuloEjercicio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloCalendario\ModuloCalendario.csproj">
+      <Project>{16024BB4-0BE4-4C66-8446-72DDCB00178A}</Project>
+      <Name>ModuloCalendario</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

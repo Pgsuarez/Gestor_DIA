@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Exercises>
+  <Exercise Id="0">
+    <Distance>2000</Distance>
+    <Minutes>10</Minutes>
+  </Exercise>
+  <Exercise Id="1">
+    <Distance>5000</Distance>
+    <Minutes>20</Minutes>
+  </Exercise>
+  <Exercise Id="2">
+    <Distance>3000</Distance>
+    <Minutes>12</Minutes>
+  </Exercise>
+  <Exercise Id="4">
+    <Distance>3000</Distance>
+    <Minutes>20</Minutes>
+  </Exercise>
+</Exercises>
