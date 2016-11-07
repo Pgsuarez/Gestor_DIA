@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using ModuloEjercicio.API;
 
 namespace ModuloEjercicio.App
 {
@@ -35,8 +36,19 @@ namespace ModuloEjercicio.App
 			editButton = new Button(Stock.Edit);
 			deleteButton = new Button(Stock.Delete);
 
-			addButton.Clicked += delegate { ShowDialog(false); };
-			editButton.Clicked += delegate { ShowDialog(true); };
+			addButton.Clicked += delegate {
+                //ShowDialog(false); 
+                Exercise ex;
+                new ExerciseDialog("Add exercise", this, out ex);
+                Console.WriteLine(ex.ToString() + "vujhguivl");
+            };
+			editButton.Clicked += delegate { 
+                //ShowDialog(true); 
+                Exercise ex = exerciseService.Get(1);
+                Console.WriteLine(ex.ToString() + "antes");
+                new ExerciseDialog("Edit exercise", this, ref ex);
+                Console.WriteLine(ex.ToString() + "despues");
+            };
 			deleteButton.Clicked += delegate { ShowDeleteDialog(); };
 
 			butList.PackStart(addButton, false, false, 0);

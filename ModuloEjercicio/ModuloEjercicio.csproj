@@ -38,6 +38,8 @@
     <Compile Include="Persistence\Default\DefaultExercisePersistServiceBack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="App\ExerciseDialogEvents.cs" />
+    <Compile Include="App\ExerciseDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="API\" />
