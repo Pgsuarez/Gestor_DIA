@@ -39,6 +39,14 @@
       <Project>{16024BB4-0BE4-4C66-8446-72DDCB00178A}</Project>
       <Name>ModuloCalendario</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModuloMedidas\ModuloMedidas.csproj">
+      <Project>{17771AE0-12F7-4DFF-B7A1-9DB9049D3620}</Project>
+      <Name>ModuloMedidas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notas\Notas.csproj">
+      <Project>{4B6A13AD-10CD-42C8-87C4-EB51D33A5750}</Project>
+      <Name>Notas</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
