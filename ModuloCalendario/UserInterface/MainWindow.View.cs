@@ -8,7 +8,7 @@ namespace ModuloCalendario.UserInterface
 
 		private Components.Calendar calendarComponent;
 		private Components.DayNotes dayNotesComponent;
-		private Components.MonthNotes monthNotesComponent;
+		private Components.MonthContent monthContentComponent;
 
 
 		public MainWindow() : base(Gtk.WindowType.Toplevel)
@@ -26,22 +26,22 @@ namespace ModuloCalendario.UserInterface
 
 			this.calendarComponent = new Components.Calendar();
 			this.dayNotesComponent = new Components.DayNotes();
-			this.monthNotesComponent = new Components.MonthNotes();
+			this.monthContentComponent = new Components.MonthContent();
 
 
 			this.calendarComponent.DaySelected += OnDaySelected;
 
 			//left-top
-			leftVox.PackStart(calendarComponent, true, true, 5);
+			leftVox.PackStart(this.calendarComponent, true, true, 5);
 
 			//left-bottom
-			leftVox.PackStart(dayNotesComponent, true, true, 5);
+			leftVox.PackStart(this.dayNotesComponent, true, true, 5);
 
 			//left
 			mainHbox.PackStart(leftVox, true, true, 5);
 
 			//right
-			mainHbox.PackStart(this.monthNotesComponent, true, true, 5);
+			mainHbox.PackStart(this.monthContentComponent, true, true, 5);
 
 			Add(mainHbox);
 		}

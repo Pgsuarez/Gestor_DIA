@@ -13,8 +13,7 @@ namespace ModuloCalendario.UserInterface
 		void OnDaySelected(object sender, EventArgs e)
 		{
 			var calendar = (Calendar)sender;
-			this.dayNotesComponent.ChangeDay(calendar.Date);
-			this.monthNotesComponent.ChangeMonth(calendar.Date);
+			this.ChangeDay (calendar.Date);
 		}
 	}
 }

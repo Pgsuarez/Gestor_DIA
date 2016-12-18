@@ -59,13 +59,19 @@
     <Compile Include="UserInterface\Components\DayNotes\DayNotes.Events.cs" />
     <Compile Include="UserInterface\Components\DayNotes\DayNotes.Model.cs" />
     <Compile Include="UserInterface\Components\DayNotes\DayNotes.View.cs" />
-    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.Events.cs" />
-    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.Model.cs" />
-    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.View.cs" />
     <Compile Include="DataClasses\Exercise.cs" />
     <Compile Include="DataClasses\Measurements.cs" />
     <Compile Include="Services\ExercisesService.cs" />
-    <Compile Include="UserInterface\Components\IComponent.cs" />
+    <Compile Include="UserInterface\Components\MonthContent\MonthContent.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthContent\MonthContent.View.cs" />
+    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.View.cs" />
+    <Compile Include="UserInterface\Components\MonthContent\MonthContent.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.View.cs" />
+    <Compile Include="UserInterface\MainWindow.Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
@@ -78,6 +84,8 @@
     <Folder Include="UserInterface\Components\Calendar\" />
     <Folder Include="UserInterface\Components\DayNotes\" />
     <Folder Include="UserInterface\Components\MonthNotes\" />
+    <Folder Include="UserInterface\Components\MonthContent\" />
+    <Folder Include="UserInterface\Components\MonthExercises\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
