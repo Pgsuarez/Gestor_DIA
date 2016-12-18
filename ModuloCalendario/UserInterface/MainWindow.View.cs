@@ -10,6 +10,7 @@ namespace ModuloCalendario.UserInterface
 		private Components.DayNotes dayNotesComponent;
 		private Components.MonthNotes monthNotesComponent;
 
+
 		public MainWindow() : base(Gtk.WindowType.Toplevel)
 		{
 			SetPosition(Gtk.WindowPosition.Center);
@@ -27,7 +28,9 @@ namespace ModuloCalendario.UserInterface
 			this.dayNotesComponent = new Components.DayNotes();
 			this.monthNotesComponent = new Components.MonthNotes();
 
+
 			this.calendarComponent.DaySelected += OnDaySelected;
+
 			//left-top
 			leftVox.PackStart(calendarComponent, true, true, 5);
 

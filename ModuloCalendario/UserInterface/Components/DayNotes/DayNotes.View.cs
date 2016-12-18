@@ -1,28 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using Gtk;
+using System.Collections.Generic;
 using ModuloCalendario.DataClasses;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthNotes : Gtk.VBox
+	public partial class DayNotes : Gtk.VBox
 	{
-		enum Columns { Index, Exercise, Note, Date };
+
+		enum Columns { Index, Title, Body };
 
 		//state
 
 		//components and widgets
-		private Label monthLabel;
+		private Label dayLabel;
 		private Label notesCounterLabel;
 		TreeView notesTreeView;
+		ListStore notesListStore;
 
 
-		public MonthNotes() : base()
+
+		public DayNotes() : base()
 		{
+			
 			//Init view's state
-			this.Month = DateTime.Now;
-
-			this.notes = new List<Note>();
+			this.InitModel();
 			this.notesListStore = new Gtk.ListStore(typeof(int), typeof(string), typeof(string));
 
 			//Render
@@ -36,11 +38,11 @@ namespace ModuloCalendario.UserInterface.Components
 			//Header
 			var headerHBox = new Gtk.HBox();
 
-			var headerFirstLabel = new Gtk.Label("Notes of month ");
+			var headerFirstLabel = new Gtk.Label("Notes of day ");
 			headerHBox.PackStart(headerFirstLabel, false, false, 0);
 
-			this.monthLabel = new Gtk.Label();
-			headerHBox.PackStart(this.monthLabel, false, true, 0);
+			this.dayLabel = new Gtk.Label();
+			headerHBox.PackStart(this.dayLabel, false, true, 0);
 
 			this.notesCounterLabel = new Gtk.Label();
 			headerHBox.PackStart(this.notesCounterLabel, false, false, 0);
@@ -65,41 +67,46 @@ namespace ModuloCalendario.UserInterface.Components
 			PackStart(mainVox, true, true, 0);
 
 			//Update state and render
-			Fetch();
-			RenderState();
+			this.OnViewBuilt();
 		}
 
-		void AddListColumns()
+		private void AddListColumns()
 		{
 			CellRendererText rendererText;
 			TreeViewColumn column;
 
 			rendererText = new CellRendererText();
 			column = new TreeViewColumn("#", rendererText, "text", Columns.Index);
-			column.SortColumnId = (int)Columns.Index;
+			column.SortColumnId = (int) Columns.Index;
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Exercise", rendererText, "text", Columns.Exercise);
-			column.SortColumnId = (int)Columns.Exercise;
+			column = new TreeViewColumn("Title", rendererText, "text", Columns.Title);
+			column.SortColumnId = (int) Columns.Title;
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Note", rendererText, "text", Columns.Note);
-			column.SortColumnId = (int)Columns.Note;
+			column = new TreeViewColumn("Body", rendererText, "text", Columns.Body);
+			column.SortColumnId = (int) Columns.Body;
 			this.notesTreeView.AppendColumn(column);
-
-			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Date", rendererText, "text", Columns.Date);
-			column.SortColumnId = (int)Columns.Date;
-			this.notesTreeView.AppendColumn(column);
-
 		}
 
-		void RenderState()
+		private void ShowNotesCounter(int count)
 		{
-			this.notesCounterLabel.Text = "  (" + this.notes.Count + ")";
-			this.monthLabel.Text = this.Month.Month.ToString() + "/" + this.Month.Year.ToString();
+			this.notesCounterLabel.Text = "  (" + count + ")";
+		}
+
+		private void ShowDayLabel(String day, String month, String year){
+			this.dayLabel.Text = day + "/" + month + "/" + year;
+		}
+			
+
+		public void ClearNotes(){
+			this.notesListStore.Clear ();
+		}
+
+		public void ShowNote(int index, string title, string body) {
+			this.notesListStore.AppendValues (index, title, body);
 		}
 	}
 }

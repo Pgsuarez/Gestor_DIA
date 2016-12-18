@@ -1,10 +1,10 @@
 ﻿using System;
-using Gtk;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthNotes : Gtk.VBox
+	public interface IDayNotes
 	{
-		
+		void ChangeDay(DateTime day);
 	}
 }
+
