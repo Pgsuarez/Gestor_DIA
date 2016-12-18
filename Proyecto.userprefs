@@ -1,8 +1,10 @@
-﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default">
+﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default" StartupItem="ModuloCalendario/ModuloCalendario.csproj">
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.MainApp PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
