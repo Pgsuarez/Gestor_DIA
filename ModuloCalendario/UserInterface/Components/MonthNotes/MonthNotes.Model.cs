@@ -44,9 +44,6 @@ namespace ModuloCalendario.UserInterface.Components
 			{
 				this.ShowNote(counter++, note.Title, note.Body, note.Date.ToString());
 			}
-
-			this.ShowMonthLabel(this.CurrentMonth.Month.ToString(), this.CurrentMonth.Year.ToString());
-			this.ShowNotesCounterLabel (this.NotesCount);
 		}
 
 		public void ChangeMonth(DateTime month)

@@ -11,8 +11,6 @@ namespace ModuloCalendario.UserInterface.Components
 
 
 		//components and widgets
-		private Label monthLabel;
-		private Label notesCounterLabel;
 		TreeView notesTreeView;
 		ListStore notesListStore;
 	
@@ -33,21 +31,6 @@ namespace ModuloCalendario.UserInterface.Components
 		{
 			var mainVox = new Gtk.VBox();
 
-			//Header
-			var headerHBox = new Gtk.HBox();
-
-			var headerFirstLabel = new Gtk.Label("Notes of month ");
-			headerHBox.PackStart(headerFirstLabel, false, false, 0);
-
-			this.monthLabel = new Gtk.Label();
-			headerHBox.PackStart(this.monthLabel, false, true, 0);
-
-			this.notesCounterLabel = new Gtk.Label();
-			headerHBox.PackStart(this.notesCounterLabel, false, false, 0);
-
-			mainVox.PackStart(headerHBox, false, false, 5);
-
-
 			//List
 			this.notesTreeView = new TreeView(this.notesListStore);
 
@@ -59,7 +42,6 @@ namespace ModuloCalendario.UserInterface.Components
 			this.AddListColumns();
 
 			mainVox.PackStart(sw, true, true, 0);
-
 
 			//Wrap
 			PackStart(mainVox, true, true, 0);
@@ -101,14 +83,6 @@ namespace ModuloCalendario.UserInterface.Components
 
 		private void ShowNote(int index, string title, string body, string date){
 			this.notesListStore.AppendValues (index, title, body, date);
-		}
-			
-		private void ShowMonthLabel(string month, string year){
-			this.monthLabel.Text = month + "/" + year;
-		}
-
-		private void ShowNotesCounterLabel(int count){
-			this.notesCounterLabel.Text = "  (" + count + ")";
 		}
 	}
 }

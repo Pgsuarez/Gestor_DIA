@@ -44,9 +44,6 @@ namespace ModuloCalendario.UserInterface.Components
 			{
 				this.ShowExercise(counter++, exercise.Distance, exercise.Minutes, exercise.Date.ToString());
 			}
-
-			this.ShowExerciseLabel(this.CurrentMonth.Month.ToString(), this.CurrentMonth.Year.ToString());
-			this.ShowExercisesCounterLabel (this.ExercisesCount);
 		}
 
 		public void ChangeMonth(DateTime month)

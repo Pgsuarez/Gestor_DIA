@@ -10,6 +10,7 @@ namespace ModuloCalendario.UserInterface.Components
 
 		MonthNotes monthNotesComponent;
 		MonthExercises monthExercisesComponent;
+		Gtk.Label titleLabel;
 
 		public MonthContent() : base()
 		{
@@ -22,18 +23,36 @@ namespace ModuloCalendario.UserInterface.Components
 
 		private void Build()
 		{
+			this.titleLabel = new Label ("");
+			var fontDescription = new Pango.FontDescription ();
+			fontDescription.Size = Convert.ToInt32(17 * Pango.Scale.PangoScale);
+			this.titleLabel.ModifyFont (fontDescription);
+			this.PackStart (this.titleLabel, false, true, 10);
+
 			this.monthNotesComponent = new MonthNotes ();
 			this.monthExercisesComponent = new MonthExercises ();
 
-			Gtk.VBox vbox = new Gtk.VBox ();
+			var nbLibro = new Gtk.Notebook();
 
-			vbox.PackStart (this.monthNotesComponent);
-			vbox.PackStart (this.monthExercisesComponent);
+			nbLibro.AppendPage(
+				this.monthNotesComponent,
+				new Gtk.Label( "Notes" )
+			);
 
-			this.PackStart (vbox);
+			nbLibro.AppendPage(
+				this.monthExercisesComponent,
+				new Gtk.Label( "Exercises" )
+			);
+
+
+			this.Add( nbLibro );
 
 			//Update state and render
 			this.OnViewBuilt();
+		}
+
+		private void ShowCurrentMonth(string month, string year){
+			this.titleLabel.Text = String.Format ("{0}/{1}", month, year);
 		}
 	}
 }

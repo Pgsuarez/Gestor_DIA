@@ -16,7 +16,8 @@ namespace ModuloCalendario.UserInterface.Components
 		}
 
 		private void RefreshView(){
-			
+			this.ShowCurrentMonth (this.currentMonth.Month.ToString (), 
+				this.currentMonth.Year.ToString ());
 		}
 
 		public void ChangeMonth(DateTime month){

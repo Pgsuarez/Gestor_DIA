@@ -9,10 +9,6 @@ namespace ModuloCalendario.UserInterface.Components
 	{
 		enum Columns { Index, Distance, Minutes, Date };
 
-
-		//components and widgets
-		private Label monthLabel;
-		private Label exercisesCounterLabel;
 		TreeView notesTreeView;
 		ListStore exercisesListStore;
 	
@@ -32,21 +28,6 @@ namespace ModuloCalendario.UserInterface.Components
 		private void Build()
 		{
 			var mainVox = new Gtk.VBox();
-
-			//Header
-			var headerHBox = new Gtk.HBox();
-
-			var headerFirstLabel = new Gtk.Label("Exercises of month ");
-			headerHBox.PackStart(headerFirstLabel, false, false, 0);
-
-			this.monthLabel = new Gtk.Label();
-			headerHBox.PackStart(this.monthLabel, false, true, 0);
-
-			this.exercisesCounterLabel = new Gtk.Label();
-			headerHBox.PackStart(this.exercisesCounterLabel, false, false, 0);
-
-			mainVox.PackStart(headerHBox, false, false, 5);
-
 
 			//List
 			this.notesTreeView = new TreeView(this.exercisesListStore);
@@ -101,14 +82,6 @@ namespace ModuloCalendario.UserInterface.Components
 
 		private void ShowExercise(int index, int distance, int minutes, string date){
 			this.exercisesListStore.AppendValues (index, distance, minutes, date);
-		}
-			
-		private void ShowExerciseLabel(string month, string year){
-			this.monthLabel.Text = month + "/" + year;
-		}
-
-		private void ShowExercisesCounterLabel(int count){
-			this.exercisesCounterLabel.Text = "  (" + count + ")";
 		}
 	}
 }
