@@ -15,5 +15,17 @@ namespace ModuloCalendario.UserInterface
 			var calendar = (Calendar)sender;
 			this.ChangeDay (calendar.Date);
 		}
+
+		private void OnViewBuilt(){
+
+		}
+
+		private void OnNewNoteClicked(object o, EventArgs e){
+			this.CreateNote ();
+		}
+
+		private void OnNewExerciseClicked(object o, EventArgs e){
+
+		}
 	}
 }

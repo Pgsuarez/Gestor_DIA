@@ -1,4 +1,4 @@
-﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default" StartupItem="ModuloCalendario/ModuloCalendario.csproj">
+﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default" StartupItem="ModuloCalendario/ModuloCalendario.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

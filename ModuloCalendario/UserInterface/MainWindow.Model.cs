@@ -17,5 +17,9 @@ namespace ModuloCalendario.UserInterface
 			this.dayContentComponent.ChangeDay (day);
 			this.RefreshView ();
 		}
+
+		private void CreateNote(){
+			this.ShowNoteForm ();
+		}
 	}
 }
