@@ -14,7 +14,7 @@ namespace ModuloCalendario.UserInterface
 		public void ChangeDay(DateTime day){
 			this.currentDay = day;
 			this.monthContentComponent.ChangeMonth (day);
-			this.dayNotesComponent.ChangeDay (day);
+			this.dayContentComponent.ChangeDay (day);
 			this.RefreshView ();
 		}
 	}

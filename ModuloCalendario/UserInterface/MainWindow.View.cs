@@ -7,7 +7,7 @@ namespace ModuloCalendario.UserInterface
 	{
 
 		private Components.Calendar calendarComponent;
-		private Components.DayNotes dayNotesComponent;
+		private Components.DayContent dayContentComponent;
 		private Components.MonthContent monthContentComponent;
 
 
@@ -25,7 +25,7 @@ namespace ModuloCalendario.UserInterface
 			var leftVox = new VBox(true, 5);
 
 			this.calendarComponent = new Components.Calendar();
-			this.dayNotesComponent = new Components.DayNotes();
+			this.dayContentComponent = new Components.DayContent();
 			this.monthContentComponent = new Components.MonthContent();
 
 
@@ -35,7 +35,7 @@ namespace ModuloCalendario.UserInterface
 			leftVox.PackStart(this.calendarComponent, true, true, 5);
 
 			//left-bottom
-			leftVox.PackStart(this.dayNotesComponent, true, true, 5);
+			leftVox.PackStart(this.dayContentComponent, true, true, 5);
 
 			//left
 			mainHbox.PackStart(leftVox, true, true, 5);

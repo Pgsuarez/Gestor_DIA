@@ -5,23 +5,21 @@ using ModuloCalendario.DataClasses;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class DayNotes : Gtk.VBox
+	public partial class DayExercises : Gtk.VBox
 	{
-		enum Columns { Index, Title, Body, Date };
+		enum Columns { Index, Distance, Minutes, Date };
 
-
-		//components and widgets
 		TreeView notesTreeView;
-		ListStore notesListStore;
+		ListStore exercisesListStore;
 	
 
 
-		public DayNotes() : base()
+		public DayExercises() : base()
 		{
 			//Init view's state
 			this.InitModel();
 
-			this.notesListStore = new Gtk.ListStore(typeof(int), typeof(string), typeof(string), typeof(string));
+			this.exercisesListStore = new Gtk.ListStore(typeof(int), typeof(int), typeof(int), typeof(string));
 
 			//Build
 			Build();
@@ -32,7 +30,7 @@ namespace ModuloCalendario.UserInterface.Components
 			var mainVox = new Gtk.VBox();
 
 			//List
-			this.notesTreeView = new TreeView(this.notesListStore);
+			this.notesTreeView = new TreeView(this.exercisesListStore);
 
 			ScrolledWindow sw = new ScrolledWindow();
 			sw.ShadowType = ShadowType.EtchedIn;
@@ -42,6 +40,7 @@ namespace ModuloCalendario.UserInterface.Components
 			this.AddListColumns();
 
 			mainVox.PackStart(sw, true, true, 0);
+
 
 			//Wrap
 			PackStart(mainVox, true, true, 0);
@@ -61,13 +60,13 @@ namespace ModuloCalendario.UserInterface.Components
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Title", rendererText, "text", Columns.Title);
-			column.SortColumnId = (int)Columns.Title;
+			column = new TreeViewColumn("Distance", rendererText, "text", Columns.Distance);
+			column.SortColumnId = (int)Columns.Distance;
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Body", rendererText, "text", Columns.Body);
-			column.SortColumnId = (int)Columns.Body;
+			column = new TreeViewColumn("Minutes", rendererText, "text", Columns.Minutes);
+			column.SortColumnId = (int)Columns.Minutes;
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
@@ -77,12 +76,12 @@ namespace ModuloCalendario.UserInterface.Components
 
 		}
 
-		private void ClearNotes(){
-			this.notesListStore.Clear ();
+		private void ClearExercises(){
+			this.exercisesListStore.Clear ();
 		}
 
-		private void ShowNote(int index, string title, string body, string date){
-			this.notesListStore.AppendValues (index, title, body, date);
+		private void ShowExercise(int index, int distance, int minutes, string date){
+			this.exercisesListStore.AppendValues (index, distance, minutes, date);
 		}
 	}
 }

@@ -56,9 +56,6 @@
     <Compile Include="UserInterface\Components\Calendar\Calendar.Events.cs" />
     <Compile Include="UserInterface\Components\Calendar\Calendar.Model.cs" />
     <Compile Include="UserInterface\Components\Calendar\Calendar.View.cs" />
-    <Compile Include="UserInterface\Components\DayNotes\DayNotes.Events.cs" />
-    <Compile Include="UserInterface\Components\DayNotes\DayNotes.Model.cs" />
-    <Compile Include="UserInterface\Components\DayNotes\DayNotes.View.cs" />
     <Compile Include="DataClasses\Exercise.cs" />
     <Compile Include="DataClasses\Measurements.cs" />
     <Compile Include="Services\ExercisesService.cs" />
@@ -72,6 +69,15 @@
     <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.Model.cs" />
     <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.View.cs" />
     <Compile Include="UserInterface\MainWindow.Model.cs" />
+    <Compile Include="UserInterface\Components\DayContent\DayContent.Events.cs" />
+    <Compile Include="UserInterface\Components\DayContent\DayContent.Model.cs" />
+    <Compile Include="UserInterface\Components\DayContent\DayContent.View.cs" />
+    <Compile Include="UserInterface\Components\DayNotes\DayNotes.Events.cs" />
+    <Compile Include="UserInterface\Components\DayNotes\DayNotes.Model.cs" />
+    <Compile Include="UserInterface\Components\DayNotes\DayNotes.View.cs" />
+    <Compile Include="UserInterface\Components\DayExercises\DayExercises.Events.cs" />
+    <Compile Include="UserInterface\Components\DayExercises\DayExercises.Model.cs" />
+    <Compile Include="UserInterface\Components\DayExercises\DayExercises.View.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
@@ -82,10 +88,12 @@
     <Folder Include="UserInterface\" />
     <Folder Include="UserInterface\Components\" />
     <Folder Include="UserInterface\Components\Calendar\" />
-    <Folder Include="UserInterface\Components\DayNotes\" />
     <Folder Include="UserInterface\Components\MonthNotes\" />
     <Folder Include="UserInterface\Components\MonthContent\" />
     <Folder Include="UserInterface\Components\MonthExercises\" />
+    <Folder Include="UserInterface\Components\DayContent\" />
+    <Folder Include="UserInterface\Components\DayExercises\" />
+    <Folder Include="UserInterface\Components\DayNotes\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
