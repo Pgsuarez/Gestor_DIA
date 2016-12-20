@@ -31,7 +31,6 @@
     <Compile Include="API\ExerciseService.cs" />
     <Compile Include="App\MainWindowView.cs" />
     <Compile Include="App\MainWindowCore.cs" />
-    <Compile Include="App\UI.cs" />
     <Compile Include="Core\DefaultExerciseService.cs" />
     <Compile Include="Persistence\API\ExercisePersistService.cs" />
     <Compile Include="Persistence\Default\DefaultExercisePersistService.cs" />

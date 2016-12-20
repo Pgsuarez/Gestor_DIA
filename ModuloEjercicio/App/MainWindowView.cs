@@ -107,10 +107,6 @@ namespace ModuloEjercicio.App
 			Id
 	    }
 
-		private Entry minutesEntry;
-		private Entry distanceEntry;
-		private int selectedEx_Id;
-
 		private Button addButton;
 		private Button editButton;
 		private Button deleteButton;

@@ -82,15 +82,16 @@ namespace ModuloEjercicio.App
 
         void onEditButtonClicked()
         {
-            Exercise ex = exerciseService.Get(1);
-            var dialog = new ExerciseDialog("Edit exercise", this, ex);
-            ex = dialog.getResult();
-            exerciseService.Update(ex);
-
             TreeIter iter;
             TreeModel model;
             if (treeView.Selection.GetSelected(out model, out iter))
             {
+                int selected_Id = (int) store.GetValue(iter, (int)Column.Id);
+                Exercise ex = exerciseService.Get(selected_Id);
+                var dialog = new ExerciseDialog("Edit exercise", this, ex);
+                ex = dialog.getResult();
+                exerciseService.Update(ex);
+
                 store.SetValue(iter, (int)Column.Distance, ex.Distance);
                 store.SetValue(iter, (int)Column.Minutes, ex.Minutes);
                 store.SetValue(iter, (int)Column.Id, ex.Id);

@@ -6,21 +6,6 @@ namespace ModuloEjercicio.App
 {
 	public partial class ExerciseDialog : Dialog
 	{
-        /// <summary>
-        /// Creates a new exercise from user input
-        /// </summary>
-		/*public ExerciseDialog(String title, Window parent, out Exercise ex) :
-                base(title, parent, Gtk.DialogFlags.DestroyWithParent)
-        {
-            ex = exToRet = new Exercise(0, 0);
-            edit = false;
-            this.Build();
-        }*/
-
-        /// <summary>
-        /// Updates exercise from user input
-        /// param name="ex" The exercise to update
-        /// </summary>
         public ExerciseDialog(String title, Window parent, Exercise ex = null) :
                 base(title, parent, Gtk.DialogFlags.DestroyWithParent)
         {
@@ -34,9 +19,11 @@ namespace ModuloEjercicio.App
 
             var row1 = new HBox(true, 5);
             var row2 = new HBox(true, 5);
+            var row3 = new HBox(true, 5);
 
             this.VBox.Add(row1);
             this.VBox.Add(row2);
+            this.VBox.Add(row3);
 
             var lbl1 = new Label("Distance");
             var lbl2 = new Label("Minutes");
@@ -45,15 +32,19 @@ namespace ModuloEjercicio.App
             {
                 var selectedEx_Distance = ex.Distance;
                 var selectedEx_Minutes = ex.Minutes;
+                var selectedEx_Date = ex.Date;
                 var selectedEx_Id = ex.Id;
 
                 distanceEntry = new Entry(selectedEx_Distance.ToString());
                 minutesEntry = new Entry(selectedEx_Minutes.ToString());
+                dateEntry = new Calendar();
+                dateEntry.Date = selectedEx_Date;
             }
             else
             {
                 distanceEntry = new Entry();
                 minutesEntry = new Entry();
+                dateEntry = new Calendar();
             }
 
             row1.Add(lbl1);
@@ -62,12 +53,16 @@ namespace ModuloEjercicio.App
             row2.Add(lbl2);
             row2.Add(minutesEntry);
 
+            row3.Add(dateEntry);
+
             if (ex != null)
             {
+                //ResponseType.Apply -> Edit exercise
                 this.AddButton(Stock.Save, ResponseType.Apply);
             }
             else
             {
+                //ResponseType.Accept -> Add new exercise
                 this.AddButton(Stock.Save, ResponseType.Accept);
             }
             this.AddButton(Stock.Cancel, ResponseType.Cancel);
@@ -85,6 +80,7 @@ namespace ModuloEjercicio.App
         private Exercise ex;
 
 		private Entry minutesEntry;
-		private Entry distanceEntry;
+        private Entry distanceEntry;
+        private Calendar dateEntry;
 	}
 }

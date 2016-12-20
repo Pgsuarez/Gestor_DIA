@@ -9,23 +9,26 @@ namespace ModuloEjercicio.App
 	{
 		void OnDialogResponse(object o, ResponseArgs args)
 		{
-			//ResponseType.Accept -> Add new exercise
-			if (args.ResponseId.Equals(ResponseType.Accept))
-			{
-				var distance = Convert.ToInt32(distanceEntry.Text);
-				var minutes = Convert.ToInt32(minutesEntry.Text);
-                ex = new Exercise(distance, minutes);
-			}
+            if (!args.ResponseId.Equals(ResponseType.Cancel))
+            {
+                var distance = Convert.ToInt32(distanceEntry.Text);
+                var minutes = Convert.ToInt32(minutesEntry.Text);
+                var date = dateEntry.Date;
 
-			//ResponseType.Apply -> Edit exercise
-			if (args.ResponseId.Equals(ResponseType.Apply))
-			{
-				var distance = Convert.ToInt32(distanceEntry.Text);
-				var minutes = Convert.ToInt32(minutesEntry.Text);
+                //ResponseType.Accept -> Add new exercise
+                if (args.ResponseId.Equals(ResponseType.Accept))
+                {
+                    ex = new Exercise(distance, minutes, date);
+                }
 
-				ex.Distance = distance;
-				ex.Minutes = minutes;
-			}
+                //ResponseType.Apply -> Edit exercise
+                if (args.ResponseId.Equals(ResponseType.Apply))
+                {
+                    ex.Distance = distance;
+                    ex.Minutes = minutes;
+                    ex.Date = date;
+    			}
+            }
 		}
 	}
 }

@@ -54,9 +54,14 @@ namespace ModuloEjercicio.Persistence.Default
 				textWriter.WriteEndElement();
 				textWriter.WriteStartElement("Minutes");
 
-				textWriter.WriteValue(Ex.Minutes);
+                textWriter.WriteValue(Ex.Minutes);
 
-				textWriter.WriteEndElement();
+                textWriter.WriteEndElement();
+                textWriter.WriteStartElement("Date");
+
+                textWriter.WriteValue(Ex.Date.ToString());
+
+                textWriter.WriteEndElement();
 
 				textWriter.WriteEndElement();
 			}
@@ -72,8 +77,9 @@ namespace ModuloEjercicio.Persistence.Default
 			foreach (Exercise Ex in Exercises)
 			{
 				var Exercise = new XElement("Exercise",
-									new XElement("Distance", Ex.Distance),
-		                            new XElement("Minutes", Ex.Minutes));
+                                    new XElement("Distance", Ex.Distance),
+		                            new XElement("Minutes", Ex.Minutes),
+                                    new XElement("Date", Ex.Date.ToString()));
 				Exercise.Add(new XAttribute("Id", Ex.Id));
 				raiz.Add(Exercise);
 			}
@@ -90,9 +96,10 @@ namespace ModuloEjercicio.Persistence.Default
 			foreach (XmlNode Node in docXml.DocumentElement.ChildNodes)
 			{
 				Exercise Ex = null;
-				Int32 Id = 0;
-				Int32 Distance = 0;
-				Int32 Minutes = 0;
+				Int32 Id = default(Int32);
+                Int32 Distance = default(Int32);
+				Int32 Minutes = default(Int32);
+                DateTime Date = default(DateTime);
 
 				foreach (XmlNode Child in Node.ChildNodes)
 				{
@@ -104,10 +111,13 @@ namespace ModuloEjercicio.Persistence.Default
 						case "Minutes":
 		                    Minutes = Convert.ToInt32(Child.InnerText);
 							break;
+                        case "Date":
+                            Date = Convert.ToDateTime(Child.InnerText);
+                            break;
 					}
 					Id = Convert.ToInt32(Child.Attributes.GetNamedItem("Id").InnerText);
 				}
-				Ex = Exercise.createExerciseWithId(Id, Distance, Minutes);
+                Ex = Exercise.createExerciseWithId(Id, Distance, Minutes, Date);
 
 				ExList.Add(Ex);
 			}
@@ -124,11 +134,12 @@ namespace ModuloEjercicio.Persistence.Default
 							 {
 								 Id = Convert.ToInt32(Ex.Attribute("Id").Value),
 								 Distance = Convert.ToInt32(Ex.Element("Distance").Value),
-								 Minutes = Convert.ToInt32(Ex.Element("Minutes").Value)
+                                 Minutes = Convert.ToInt32(Ex.Element("Minutes").Value),
+                                 Date = Convert.ToDateTime(Ex.Element("Date").Value)
 							 };
 			foreach (var Ex in Exercises)
 			{
-				ExList.Add(Exercise.createExerciseWithId(Ex.Id, Ex.Distance, Ex.Minutes));
+				ExList.Add(Exercise.createExerciseWithId(Ex.Id, Ex.Distance, Ex.Minutes, Ex.Date));
 			}
 			return ExList;
 		}
