@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ModuloEjercicio.API;
 
-namespace ModuloCalendario
+namespace ModuloCalendario.Services
 {
 	public class ExercisesService
 	{
