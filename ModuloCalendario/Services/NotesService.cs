@@ -34,6 +34,21 @@ namespace ModuloCalendario.Services
 			return this.notes;
 		}
 
+		//fake method
+		public Note FindById(int id){
+			return this.notes [0];
+		}
+
+		//fake method
+		public void Save(Note note){
+			this.notes.Add (note);
+		}
+
+		//fake method
+		public void Update(Note note){
+			this.notes.Add (note);
+		}
+
 
 	}
 }

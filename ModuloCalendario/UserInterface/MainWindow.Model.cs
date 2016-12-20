@@ -20,6 +20,7 @@ namespace ModuloCalendario.UserInterface
 
 		private void CreateNote(){
 			this.ShowNoteForm ();
+			this.ChangeDay (this.currentDay);
 		}
 	}
 }

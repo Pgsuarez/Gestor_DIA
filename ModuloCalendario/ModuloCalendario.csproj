@@ -82,9 +82,9 @@
     <Compile Include="UserInterface\Components\Toolbar\Toolbar.View.cs" />
     <Compile Include="UserInterface\Components\Toolbar\Toolbar.Events.cs" />
     <Compile Include="UserInterface\Components\Toolbar\Toolbar.Model.cs" />
-
     <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.View.cs" />
     <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.Events.cs" />
+    <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />

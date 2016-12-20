@@ -17,7 +17,7 @@ namespace ModuloCalendario.UserInterface
 		}
 
 		private void OnViewBuilt(){
-
+			this.ChangeDay (this.calendarComponent.Day);
 		}
 
 		private void OnNewNoteClicked(object o, EventArgs e){
