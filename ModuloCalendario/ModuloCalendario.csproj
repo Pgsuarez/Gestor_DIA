@@ -57,7 +57,6 @@
     <Compile Include="UserInterface\Components\Calendar\Calendar.Events.cs" />
     <Compile Include="UserInterface\Components\Calendar\Calendar.Model.cs" />
     <Compile Include="UserInterface\Components\Calendar\Calendar.View.cs" />
-    <Compile Include="DataClasses\Exercise.cs" />
     <Compile Include="DataClasses\Measurements.cs" />
     <Compile Include="Services\ExercisesService.cs" />
     <Compile Include="UserInterface\Components\MonthContent\MonthContent.Model.cs" />
@@ -97,9 +96,7 @@
     <Compile Include="Services\MeasurementsService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
     <Folder Include="DataClasses\" />
-    <Folder Include="DataRepository\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\" />
     <Folder Include="UserInterface\" />

@@ -30,11 +30,9 @@ namespace ModuloCalendario
 			this.measurements.Add(new Measurements(2, 3, 30, new DateTime(2016, 12, 17)));
 		}
 
-
-		//fake method
 		public List<Measurements> FindAllBetweenDates(DateTime start, DateTime end)
 		{
-			return this.measurements;
+			return this.measurements.FindAll(x => (x.Date >= start && x.Date <= end));
 		}
 	}
 }

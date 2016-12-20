@@ -28,10 +28,9 @@ namespace ModuloCalendario.Services
 			this.notes.Add(new Note(2, "Muy bien", "Estoy muy bien", new DateTime(2016,12,17)));
 		}
 
-		//fake method
 		public List<Note> FindAllBetweenDates(DateTime start, DateTime end)
 		{
-			return this.notes;
+			return this.notes.FindAll(x => (x.Date >= start && x.Date <= end));
 		}
 
 		//fake method

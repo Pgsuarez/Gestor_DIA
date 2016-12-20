@@ -113,6 +113,6 @@ namespace ModuloEjercicio.App
 			}
 		}*/
 
-		ExerciseService exerciseService = ExerciseService.getInstance();
+		ExerciseService exerciseService = ExerciseService.GetInstance();
 	}
 }

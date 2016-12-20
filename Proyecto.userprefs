@@ -1,12 +1,16 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{16024BB4-0BE4-4C66-8446-72DDCB00178A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/Application.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/UserInterface/Components/MonthContent/MonthContent.View.cs">
     <Files>
-      <File FileName="DIAGraficos/LineChart.cs" Line="192" Column="28" />
-      <File FileName="DIAGraficos/BarChart.cs" Line="201" Column="54" />
-      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresModel.cs" Line="45" Column="71" />
-      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasures.View.cs" Line="101" Column="27" />
-      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresEvents.cs" Line="26" Column="23" />
+      <File FileName="DIAGraficos/LineChart.cs" Line="1" Column="1" />
+      <File FileName="DIAGraficos/BarChart.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresModel.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasures.View.cs" Line="59" Column="45" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresEvents.cs" Line="1" Column="1" />
       <File FileName="ModuloCalendario/Application.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/DayNotes/DayNotes.View.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs" Line="34" Column="14" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthExercisesGraph/MonthExercises.View.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthContent/MonthContent.View.cs" Line="11" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />

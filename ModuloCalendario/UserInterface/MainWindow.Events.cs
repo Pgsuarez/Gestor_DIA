@@ -1,5 +1,7 @@
 ﻿using System;
 using Gtk;
+using ModuloEjercicio.API;
+using ModuloEjercicio.App;
 
 namespace ModuloCalendario.UserInterface
 {
@@ -25,7 +27,13 @@ namespace ModuloCalendario.UserInterface
 		}
 
 		private void OnNewExerciseClicked(object o, EventArgs e){
-
+            var dialog = new ExerciseDialog("Add exercise", this);
+            Exercise ex = dialog.getResult();
+            if (ex != null)
+            {
+                ExercisesService.Instance.Add(ex);
+                ChangeDay(currentDay);
+            }
 		}
 	}
 }

@@ -27,13 +27,13 @@ namespace ModuloCalendario.UserInterface.Components
 
 			this.Modal = true;
 
-			var row1 = new HBox(true, 5);
-			var row2 = new HBox(true, 5);
-			var row3 = new HBox(true, 5);
+			var row1 = new HBox(false, 5);
+			var row2 = new HBox(false, 5);
+			var row3 = new HBox(false, 5);
 
-			this.VBox.Add(row1);
+			this.VBox.PackStart(row1);
 			this.VBox.Add(row2);
-			this.VBox.Add(row3);
+			this.VBox.PackEnd(row3);
 
 			var lbl1 = new Label("Title");
 			var lbl2 = new Label("Body");
@@ -43,13 +43,13 @@ namespace ModuloCalendario.UserInterface.Components
 			this.bodyEntry = new Entry();
 			this.dateEntry = new Gtk.Calendar();
 
-			row1.Add(lbl1);
+			row1.PackStart(lbl1,false,false,5);
 			row1.Add(this.titleEntry);
 
-			row2.Add(lbl2);
+			row2.PackStart(lbl2, false, false, 5);
 			row2.Add(this.bodyEntry);
 
-			row3.Add(lbl3);
+			row3.PackStart(lbl3, false, false, 5);
 			row3.Add(this.dateEntry);
 
 			this.AddButton(Stock.Save, ResponseType.Accept);

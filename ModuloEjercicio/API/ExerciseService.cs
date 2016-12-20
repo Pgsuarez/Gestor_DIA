@@ -8,7 +8,7 @@ namespace ModuloEjercicio.API
 	{
 		private static ExerciseService singleton = null;
 
-		public static ExerciseService getInstance()
+		public static ExerciseService GetInstance()
 		{
 			if (singleton == null)
 			{
