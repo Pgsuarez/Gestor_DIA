@@ -5,16 +5,16 @@ namespace ModuloCalendario.DataClasses
 	{
 
 
-		public Note(int id, string text, int exerciseId, DateTime date)
+		public Note(int id, string title, string body, DateTime date)
 		{
 			this.Id = id;
-			this.Text = text;
-			this.ExerciseId = exerciseId;
+			this.Title = title;
+			this.Body = body;
 			this.Date = date;
 		}
 
-		public Note(int id, string text, int exerciseId) : 
-			this(id, text, exerciseId, DateTime.Now) 
+		public Note(int id, string title, string body) : 
+			this(id, title, body, DateTime.Now) 
 		{}
 
 		public int Id
@@ -22,15 +22,15 @@ namespace ModuloCalendario.DataClasses
 			get;
 		}
 
-		public string Text
+		public string Title
 		{
 			get;
 			set;
 		}
 
-		public int ExerciseId
-		{
+		public string Body {
 			get;
+			set;
 		}
 
 		public DateTime Date

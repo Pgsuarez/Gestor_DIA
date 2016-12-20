@@ -27,29 +27,64 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glade-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="UserInterface\MainWindow.View.cs" />
     <Compile Include="UserInterface\MainWindow.Events.cs" />
-    <Compile Include="UserInterface\Components\Calendar.Events.cs" />
-    <Compile Include="UserInterface\Components\Calendar.View.cs" />
     <Compile Include="Helpers\DateUtils.cs" />
-    <Compile Include="UserInterface\Components\MonthNotes.Events.cs" />
-    <Compile Include="UserInterface\Components\MonthNotes.View.cs" />
-    <Compile Include="UserInterface\Components\DayNotes.Events.cs" />
-    <Compile Include="UserInterface\Components\DayNotes.View.cs" />
     <Compile Include="DataClasses\Note.cs" />
     <Compile Include="Services\NotesService.cs" />
-    <Compile Include="UserInterface\Components\DayNotes.Model.cs" />
-    <Compile Include="UserInterface\Components\Calendar.Model.cs" />
-    <Compile Include="UserInterface\Components\MonthNotes.Model.cs" />
+    <Compile Include="UserInterface\Components\Calendar\Calendar.Events.cs" />
+    <Compile Include="UserInterface\Components\Calendar\Calendar.Model.cs" />
+    <Compile Include="UserInterface\Components\Calendar\Calendar.View.cs" />
+    <Compile Include="DataClasses\Exercise.cs" />
+    <Compile Include="DataClasses\Measurements.cs" />
+    <Compile Include="Services\ExercisesService.cs" />
+    <Compile Include="UserInterface\Components\MonthContent\MonthContent.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthContent\MonthContent.View.cs" />
+    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthNotes\MonthNotes.View.cs" />
+    <Compile Include="UserInterface\Components\MonthContent\MonthContent.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthExercises\MonthExercises.View.cs" />
+    <Compile Include="UserInterface\MainWindow.Model.cs" />
+    <Compile Include="UserInterface\Components\DayContent\DayContent.Events.cs" />
+    <Compile Include="UserInterface\Components\DayContent\DayContent.Model.cs" />
+    <Compile Include="UserInterface\Components\DayContent\DayContent.View.cs" />
+    <Compile Include="UserInterface\Components\DayNotes\DayNotes.Events.cs" />
+    <Compile Include="UserInterface\Components\DayNotes\DayNotes.Model.cs" />
+    <Compile Include="UserInterface\Components\DayNotes\DayNotes.View.cs" />
+    <Compile Include="UserInterface\Components\DayExercises\DayExercises.Events.cs" />
+    <Compile Include="UserInterface\Components\DayExercises\DayExercises.Model.cs" />
+    <Compile Include="UserInterface\Components\DayExercises\DayExercises.View.cs" />
+    <Compile Include="UserInterface\Components\Toolbar\Toolbar.View.cs" />
+    <Compile Include="UserInterface\Components\Toolbar\Toolbar.Events.cs" />
+    <Compile Include="UserInterface\Components\Toolbar\Toolbar.Model.cs" />
+    <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.View.cs" />
+    <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.Events.cs" />
+    <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
@@ -59,6 +94,15 @@
     <Folder Include="Services\" />
     <Folder Include="UserInterface\" />
     <Folder Include="UserInterface\Components\" />
+    <Folder Include="UserInterface\Components\Calendar\" />
+    <Folder Include="UserInterface\Components\MonthNotes\" />
+    <Folder Include="UserInterface\Components\MonthContent\" />
+    <Folder Include="UserInterface\Components\MonthExercises\" />
+    <Folder Include="UserInterface\Components\DayContent\" />
+    <Folder Include="UserInterface\Components\DayExercises\" />
+    <Folder Include="UserInterface\Components\DayNotes\" />
+    <Folder Include="UserInterface\Components\Toolbar\" />
+    <Folder Include="UserInterface\Components\NoteFormDialog\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

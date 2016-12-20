@@ -1,8 +1,16 @@
-﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default" StartupItem="ModuloCalendario/ModuloCalendario.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs">
+    <Files>
+      <File FileName="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs" Line="82" Column="26" />
+      <File FileName="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.Events.cs" Line="12" Column="4" />
+      <File FileName="Notas/IU/MainWindowView.cs" Line="126" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.MainApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
