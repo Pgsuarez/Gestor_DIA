@@ -35,5 +35,24 @@ namespace ModuloCalendario.Services
 		{
 			return this.measurements.FindAll(x => (x.Date >= start && x.Date <= end));
 		}
+
+		//fake method
+		public Measurements FindById(int id){
+			return this.measurements [0];
+		}
+
+		//fake method
+		public void Save(Measurements mea){
+			this.measurements.Add (mea);
+		}
+
+		//fake method
+		public void Update(Measurements mea){
+			this.measurements.Add (mea);
+		}
+
+		public void Remove(Measurements mea){
+			this.measurements.Remove (mea);
+		} 
 	}
 }
