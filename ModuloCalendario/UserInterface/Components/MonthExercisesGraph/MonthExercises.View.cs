@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using Gtk;
+using Charts;
+using Charts.Data;
 using ModuloCalendario.DataClasses;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthExercises : Gtk.VBox
+	public partial class MonthExercisesGraph : Gtk.VBox
 	{
-		enum Columns { Index, Distance, Minutes, Date };
+		
 
-		TreeView notesTreeView;
-		ListStore exercisesListStore;
-	
+		BarChart lc;
 
-
-		public MonthExercises() : base()
+		public MonthExercisesGraph() : base()
 		{
 			//Init view's state
 			this.InitModel();
-
-			this.exercisesListStore = new Gtk.ListStore(typeof(int), typeof(int), typeof(int), typeof(string));
 
 			//Build
 			Build();
@@ -30,16 +27,16 @@ namespace ModuloCalendario.UserInterface.Components
 			var mainVox = new Gtk.VBox();
 
 			//List
-			this.notesTreeView = new TreeView(this.exercisesListStore);
+			this.lc = new BarChart("Exercices");
+			lc.ValueLabel = "";
+
 
 			ScrolledWindow sw = new ScrolledWindow();
 			sw.ShadowType = ShadowType.EtchedIn;
 			sw.SetPolicy(PolicyType.Automatic, PolicyType.Automatic);
-			sw.Add(notesTreeView);
+			//sw.Add(lc);
 
-			this.AddListColumns();
-
-			mainVox.PackStart(sw, true, true, 0);
+			mainVox.PackStart(lc, true, true, 0);
 
 
 			//Wrap
@@ -49,39 +46,13 @@ namespace ModuloCalendario.UserInterface.Components
 			this.OnViewBuilt();
 		}
 
-		private void AddListColumns()
-		{
-			CellRendererText rendererText;
-			TreeViewColumn column;
-
-			rendererText = new CellRendererText();
-			column = new TreeViewColumn("#", rendererText, "text", Columns.Index);
-			column.SortColumnId = (int)Columns.Index;
-			this.notesTreeView.AppendColumn(column);
-
-			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Distance", rendererText, "text", Columns.Distance);
-			column.SortColumnId = (int)Columns.Distance;
-			this.notesTreeView.AppendColumn(column);
-
-			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Minutes", rendererText, "text", Columns.Minutes);
-			column.SortColumnId = (int)Columns.Minutes;
-			this.notesTreeView.AppendColumn(column);
-
-			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Date", rendererText, "text", Columns.Date);
-			column.SortColumnId = (int)Columns.Date;
-			this.notesTreeView.AppendColumn(column);
-
-		}
-
 		private void ClearExercises(){
-			this.exercisesListStore.Clear ();
+			this.lc.Clear();
 		}
 
-		private void ShowExercise(int index, int distance, int minutes, string date){
-			this.exercisesListStore.AppendValues (index, distance, minutes, date);
+		private void ShowExercise(int index, int distance, int minutes, string day){
+			this.lc.AddData(new BarData("Distance", distance),day);
+			this.lc.AddData(new BarData("Duration", minutes),day);
 		}
 	}
 }

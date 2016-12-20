@@ -6,7 +6,7 @@ namespace ModuloCalendario
 		public static void Main(String[] args)
 		{
 			Gtk.Application.Init();
-			var window = new UserInterface.MainWindow();
+			new UserInterface.MainWindow();
 			Gtk.Application.Run();
 		}
 	}

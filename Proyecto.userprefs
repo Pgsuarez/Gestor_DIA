@@ -1,16 +1,20 @@
-﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default" StartupItem="ModuloCalendario/ModuloCalendario.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs">
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{16024BB4-0BE4-4C66-8446-72DDCB00178A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/Application.cs">
     <Files>
-      <File FileName="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs" Line="82" Column="26" />
-      <File FileName="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.Events.cs" Line="12" Column="4" />
-      <File FileName="Notas/IU/MainWindowView.cs" Line="126" Column="17" />
+      <File FileName="DIAGraficos/LineChart.cs" Line="192" Column="28" />
+      <File FileName="DIAGraficos/BarChart.cs" Line="201" Column="54" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresModel.cs" Line="45" Column="71" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasures.View.cs" Line="101" Column="27" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresEvents.cs" Line="26" Column="23" />
+      <File FileName="ModuloCalendario/Application.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.MainApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.MainApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.ModuloCalendario PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

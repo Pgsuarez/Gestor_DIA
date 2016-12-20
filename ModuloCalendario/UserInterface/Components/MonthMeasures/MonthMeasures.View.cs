@@ -5,21 +5,21 @@ using ModuloCalendario.DataClasses;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthExercises : Gtk.VBox
+	public partial class MonthMeasures : Gtk.VBox
 	{
 		enum Columns { Index, Distance, Minutes, Date };
 
 		TreeView notesTreeView;
-		ListStore exercisesListStore;
+		ListStore measurementsListStore;
 	
 
 
-		public MonthExercises() : base()
+		public MonthMeasures() : base()
 		{
 			//Init view's state
 			this.InitModel();
 
-			this.exercisesListStore = new Gtk.ListStore(typeof(int), typeof(int), typeof(int), typeof(string));
+			this.measurementsListStore = new Gtk.ListStore(typeof(int), typeof(int), typeof(int), typeof(string));
 
 			//Build
 			Build();
@@ -30,7 +30,7 @@ namespace ModuloCalendario.UserInterface.Components
 			var mainVox = new Gtk.VBox();
 
 			//List
-			this.notesTreeView = new TreeView(this.exercisesListStore);
+			this.notesTreeView = new TreeView(this.measurementsListStore);
 
 			ScrolledWindow sw = new ScrolledWindow();
 			sw.ShadowType = ShadowType.EtchedIn;
@@ -60,12 +60,12 @@ namespace ModuloCalendario.UserInterface.Components
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Distance", rendererText, "text", Columns.Distance);
+			column = new TreeViewColumn("Weight", rendererText, "text", Columns.Distance);
 			column.SortColumnId = (int)Columns.Distance;
 			this.notesTreeView.AppendColumn(column);
 
 			rendererText = new CellRendererText();
-			column = new TreeViewColumn("Minutes", rendererText, "text", Columns.Minutes);
+			column = new TreeViewColumn("Abdominal Circ.", rendererText, "text", Columns.Minutes);
 			column.SortColumnId = (int)Columns.Minutes;
 			this.notesTreeView.AppendColumn(column);
 
@@ -76,12 +76,12 @@ namespace ModuloCalendario.UserInterface.Components
 
 		}
 
-		private void ClearExercises(){
-			this.exercisesListStore.Clear ();
+		private void ClearMeasures(){
+			this.measurementsListStore.Clear ();
 		}
 
-		private void ShowExercise(int index, int distance, int minutes, string date){
-			this.exercisesListStore.AppendValues (index, distance, minutes, date);
+		private void ShowMeasure(int index, int w, int ac, string date){
+			this.measurementsListStore.AppendValues (index, w, ac, date);
 		}
 	}
 }

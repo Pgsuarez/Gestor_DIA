@@ -85,6 +85,16 @@
     <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.View.cs" />
     <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.Events.cs" />
     <Compile Include="UserInterface\Components\NoteFormDialog\NoteFormDialog.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthExercisesGraph\MonthExercises.Events.cs" />
+    <Compile Include="UserInterface\Components\MonthExercisesGraph\MonthExercises.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthExercisesGraph\MonthExercises.View.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasuresEvents.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasures.Model.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasures.View.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasuresEvents.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasuresModel.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasures.View.cs" />
+    <Compile Include="Services\MeasurementsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
@@ -103,6 +113,15 @@
     <Folder Include="UserInterface\Components\DayNotes\" />
     <Folder Include="UserInterface\Components\Toolbar\" />
     <Folder Include="UserInterface\Components\NoteFormDialog\" />
+    <Folder Include="UserInterface\Components\MonthExercisesGraph\" />
+    <Folder Include="UserInterface\Components\MonthMeasures\" />
+    <Folder Include="UserInterface\Components\MonthMeasuresGraph\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DIAGraficos\DIAGraficos.csproj">
+      <Project>{463ED88B-60F6-445B-ADE0-E934C784C3FC}</Project>
+      <Name>DIAGraficos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

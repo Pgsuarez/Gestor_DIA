@@ -6,7 +6,7 @@ using ModuloCalendario.Services;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthExercisesGraph : Gtk.VBox
+	public partial class MonthMeasuresGraph : Gtk.VBox
 	{
 		public DateTime CurrentMonth
 		{
@@ -14,42 +14,42 @@ namespace ModuloCalendario.UserInterface.Components
 			private set;
 		}
 
-		private List<Exercise> exercises;
+		private List<Measurements> measurements;
 
 		private void InitModel(){
 			this.CurrentMonth = DateTime.Now;
 
-			this.exercises = new List<Exercise>();
-			this.UpdateExercises ();
+			this.measurements = new List<Measurements>();
+			this.UpdateMeasures ();
 		}
 
-		private void UpdateExercises()
+		private void UpdateMeasures()
 		{
 			var firstDayOfMonth = new DateTime(this.CurrentMonth.Year, this.CurrentMonth.Month, 1);
 			var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
 
-			this.exercises = ExercisesService.Instance.FindAllBetweenDates(firstDayOfMonth, lastDayOfMonth);
+			this.measurements = MeasurementsService.Instance.FindAllBetweenDates(firstDayOfMonth, lastDayOfMonth);
 		}
 
-		private int ExercisesCount {
+		private int MeasuresMonth {
 			get {
-				return this.exercises.Count;
+				return this.measurements.Count;
 			}
 		}
 
 		private void RefreshView(){
 			int counter = 0;
-			this.ClearExercises ();
-			foreach (Exercise exercise in this.exercises)
+			this.ClearMeasures ();
+			foreach (Measurements mea in this.measurements)
 			{
-				this.ShowExercise(counter++, exercise.Distance, exercise.Minutes, exercise.Date.Day.ToString());
+				this.ShowMeasure(counter++, mea.Weight, mea.AbdominalCircunference, mea.Date.Day);
 			}
 		}
 
 		public void ChangeMonth(DateTime month)
 		{
 			this.CurrentMonth = month;
-			this.UpdateExercises();
+			this.UpdateMeasures();
 			this.RefreshView ();
 		}
 

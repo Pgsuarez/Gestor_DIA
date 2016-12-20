@@ -11,7 +11,13 @@ namespace ModuloCalendario.UserInterface.Components
 	{
 		
 
-		BarChart lc;
+		LineChart lc;
+		static GLib.SList group = null;
+		private RadioButton rbWeight;
+		private RadioButton rbAC;
+
+
+
 
 		public MonthMeasuresGraph() : base()
 		{
@@ -27,16 +33,31 @@ namespace ModuloCalendario.UserInterface.Components
 			var mainVox = new Gtk.VBox();
 
 			//List
-			this.lc = new BarChart("Exercices");
-			lc.ValueLabel = "";
+			this.lc = new LineChart("Weigth");
+			lc.XLabel = "Day";
+
+			lc.YLabel = "Kg";
+
+			lc.MinXValue = 1;
+			lc.MaxXValue = 30;
+			lc.XResolution = 1;
 
 
-			ScrolledWindow sw = new ScrolledWindow();
-			sw.ShadowType = ShadowType.EtchedIn;
-			sw.SetPolicy(PolicyType.Automatic, PolicyType.Automatic);
-			//sw.Add(lc);
 
-			mainVox.PackStart(lc, true, true, 0);
+
+			rbWeight = new RadioButton(null, "Weight");
+			group = rbWeight.Group;
+			rbWeight.Active = true;
+			rbAC = new RadioButton(rbWeight, "Abc. Circ.");
+			rbWeight.Clicked += (sender, e) => ShowWeightGraphic();
+			rbAC.Clicked += (sender, e) => ShowACGraphic();
+
+			HBox cont = new HBox();
+			cont.PackStart(rbWeight);
+			cont.Add(rbAC);
+
+			mainVox.PackStart(cont, true, true, 0);
+			mainVox.Add(lc);
 
 
 			//Wrap
@@ -46,13 +67,48 @@ namespace ModuloCalendario.UserInterface.Components
 			this.OnViewBuilt();
 		}
 
-		private void ClearExercises(){
+
+
+		private void ClearMeasures(){
 			this.lc.Clear();
 		}
 
-		private void ShowExercise(int index, int distance, int minutes, string day){
-			this.lc.AddData(new BarData("Distance", distance),day);
-			this.lc.AddData(new BarData("Duration", minutes),day);
+		private void ChangeToWeight()
+		{
+			lc.Title = "Weight";
+			lc.XLabel = "Day";
+
+			lc.YLabel = "Kg";
+
+			lc.MinXValue = 1;
+			lc.MaxXValue = 30;
+			lc.XResolution = 1;
+
+		}
+
+		private void ChangeToAC()
+		{
+			lc.Title = "Abc. Circ.";
+			lc.XLabel = "Day";
+
+			lc.YLabel = "cm";
+
+			lc.MinXValue = 1;
+			lc.MaxXValue = 30;
+			lc.XResolution = 1;
+		}
+
+		private void ShowMeasure(int index, int w, int ac, int day){
+			if (weightGraph)
+			{
+				Console.WriteLine("peso");
+				this.lc.AddData(new LineData(w, day), "Weight");
+			}
+			else
+			{
+				Console.WriteLine("abc");
+				this.lc.AddData(new LineData(ac, day), "Abd. Circ.");
+			}
 		}
 	}
 }

@@ -3,7 +3,7 @@ using Gtk;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthExercises : Gtk.VBox
+	public partial class MonthExercisesGraph : Gtk.VBox
 	{
 		private void OnViewBuilt(){
 			this.RefreshView ();

@@ -6,7 +6,7 @@ using ModuloCalendario.Services;
 
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class MonthExercises : Gtk.VBox
+	public partial class MonthExercisesGraph : Gtk.VBox
 	{
 		public DateTime CurrentMonth
 		{
@@ -42,7 +42,7 @@ namespace ModuloCalendario.UserInterface.Components
 			this.ClearExercises ();
 			foreach (Exercise exercise in this.exercises)
 			{
-				this.ShowExercise(counter++, exercise.Distance, exercise.Minutes, exercise.Date.ToString());
+				this.ShowExercise(counter++, exercise.Distance, exercise.Minutes, exercise.Date.Day.ToString());
 			}
 		}
 

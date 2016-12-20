@@ -23,7 +23,14 @@ namespace ModuloCalendario.UserInterface.Components
 		public void ChangeMonth(DateTime month){
 			this.currentMonth = month;
 			this.monthNotesComponent.ChangeMonth (month);
+
 			this.monthExercisesComponent.ChangeMonth (month);
+			this.monthExercisesComponentG.ChangeMonth(month);
+
+
+			this.monthMeasuresComponent.ChangeMonth(month);
+			this.monthMeasuresComponentG.ChangeMonth(month);
+
 			this.RefreshView ();
 		}
 
