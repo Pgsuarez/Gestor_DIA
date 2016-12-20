@@ -1,25 +1,25 @@
 ﻿using System;
-using ModuloCalendario.DataClasses;
 using ModuloCalendario.Services;
+using ProyectoDIA.Core;
 
 namespace ModuloCalendario.UserInterface.Components
 {
 	public partial class NoteFormDialog : Gtk.Dialog
 	{
 		Int32 noteId = -1;
-		Note note;
+		Nota note;
 
 		private void RefreshView(){
-			this.ShowTitle (this.note.Title);
-			this.ShowBody (this.note.Body);
-			this.ShowDate (this.note.Date);
+            this.ShowTitle (this.note.Titulo);
+            this.ShowBody (this.note.Cuerpo);
+            this.ShowDate (this.note.Fecha);
 		}
 
 		private void SaveNote(string title, string body, DateTime date){
 			
-			this.note.Title = title;
-			this.note.Body = body;
-			this.note.Date = date;
+            this.note.Titulo = title;
+            this.note.Cuerpo = body;
+            this.note.Fecha = date;
 
 			if (this.noteId == -1) {
 				NotesService.Instance.Save (this.note);

@@ -31,7 +31,7 @@ namespace ModuloCalendario.UserInterface
             Exercise ex = dialog.getResult();
             if (ex != null)
             {
-                ExercisesService.Instance.Add(ex);
+                Services.ExercisesService.Instance.Add(ex);
                 ChangeDay(currentDay);
             }
 		}

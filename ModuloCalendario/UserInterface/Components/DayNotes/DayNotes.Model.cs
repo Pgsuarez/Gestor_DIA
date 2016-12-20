@@ -1,8 +1,8 @@
 ﻿using System;
 using Gtk;
 using System.Collections.Generic;
-using ModuloCalendario.DataClasses;
 using ModuloCalendario.Services;
+using ProyectoDIA.Core;
 
 namespace ModuloCalendario.UserInterface.Components
 {
@@ -14,12 +14,12 @@ namespace ModuloCalendario.UserInterface.Components
 			private set;
 		}
 
-		private List<Note> notes;
+		private List<Nota> notes;
 
 		private void InitModel(){
 			this.CurrentDay = DateTime.Now;
 
-			this.notes = new List<Note>();
+            this.notes = NotesService.Instance.FindAll();
 			this.UpdateNotes ();
 		}
 
@@ -37,9 +37,9 @@ namespace ModuloCalendario.UserInterface.Components
 		private void RefreshView(){
 			int counter = 0;
 			this.ClearNotes ();
-			foreach (Note note in this.notes)
+			foreach (Nota note in this.notes)
 			{
-				this.ShowNote(counter++, note.Title, note.Body, note.Date.ToString());
+                this.ShowNote(counter++, note.Titulo, note.Cuerpo, note.Fecha.ToString());
 			}
 		}
 
@@ -48,6 +48,18 @@ namespace ModuloCalendario.UserInterface.Components
 			this.CurrentDay = month;
 			this.UpdateNotes();
 			this.RefreshView ();
+		}
+
+		//Copy after this
+		public void Remove(int index){
+			Services.NotesService.Instance.Remove (this.notes [index]);
+			MainWindow.Instance.SetHasChanged ();
+		}
+
+		public void Edit(int index){
+			Note note = this.notes [index];
+			new NoteFormDialog (note.Id, MainWindow.Instance, DialogFlags.DestroyWithParent);
+			MainWindow.Instance.SetHasChanged ();
 		}
 
 

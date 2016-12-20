@@ -1,6 +1,7 @@
 ﻿using System;
 using ModuloCalendario.DataClasses;
 using System.Collections.Generic;
+using ProyectoDIA.Core;
 
 namespace ModuloCalendario.Services
 {
@@ -18,35 +19,55 @@ namespace ModuloCalendario.Services
 			}
 		}
 
-		private List<Note> notes;
+		private Notas notes;
 
 		private NotesService()
 		{
-			this.notes = new List<Note>();
+            try
+            {
+                var diario = new Diario(new Notas());
+                this.notes = diario.DiarioLoadToXml();
+            }
+            catch { }
+            if (notes == null)
+            {
+                this.notes = new Notas();
+            }
 
-			this.notes.Add(new Note(1, "Molestia", "Tengo una molestia en el hombro", new DateTime(2016,12,16)));
-			this.notes.Add(new Note(2, "Muy bien", "Estoy muy bien", new DateTime(2016,12,17)));
+			//this.notes.Add(new Note(1, "Molestia", "Tengo una molestia en el hombro", new DateTime(2016,12,16)));
+			//this.notes.Add(new Note(2, "Muy bien", "Estoy muy bien", new DateTime(2016,12,17)));
 		}
 
-		//fake method
-		public List<Note> FindAllBetweenDates(DateTime start, DateTime end)
+        ~NotesService()
+        {
+            var diario = new Diario(this.notes);
+            diario.DiarioSaveToXml();
+        }
+
+		public List<Nota> FindAllBetweenDates(DateTime start, DateTime end)
 		{
-			return this.notes;
+            return this.notes.N.FindAll(x => (x.Fecha >= start && x.Fecha <= end));
 		}
 
-		//fake method
-		public Note FindById(int id){
-			return this.notes [0];
+		public Nota FindById(int id){
+            return this.notes.Get(id);
 		}
 
-		//fake method
-		public void Save(Note note){
-			this.notes.Add (note);
+		public void Save(Nota note){
+            this.notes.anadir (note);
 		}
 
-		//fake method
-		public void Update(Note note){
-			this.notes.Add (note);
+		public void Update(Nota note){
+            this.notes.Update (note);
+		}
+
+        public List<Nota> FindAll()
+        {
+            return this.notes.N;
+        }
+
+		public void Remove(Nota note){
+            this.notes.Borrar (note);
 		}
 
 
