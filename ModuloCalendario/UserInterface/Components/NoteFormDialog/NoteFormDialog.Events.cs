@@ -1,5 +1,7 @@
 ﻿using System;
 using ModuloCalendario.DataClasses;
+using ProyectoDIA.Core;
+
 namespace ModuloCalendario.UserInterface.Components
 {
 	public partial class NoteFormDialog : Gtk.Dialog
@@ -9,7 +11,7 @@ namespace ModuloCalendario.UserInterface.Components
 		}
 
 		private void OnCreate(){
-			this.note = new Note (-1, "", "", DateTime.Now);
+			this.note = new Nota (-1, "", "", DateTime.Now);
 		}
 
 		private void OnReceivedNoteId(int noteId){
