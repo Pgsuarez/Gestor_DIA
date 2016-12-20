@@ -57,7 +57,7 @@ namespace ModuloCalendario.UserInterface.Components
 		}
 
 		public void Edit(int index){
-			Note note = this.notes [index];
+            Nota note = this.notes [index];
 			new NoteFormDialog (note.Id, MainWindow.Instance, DialogFlags.DestroyWithParent);
 			MainWindow.Instance.SetHasChanged ();
 		}

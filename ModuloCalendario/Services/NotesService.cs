@@ -34,8 +34,6 @@ namespace ModuloCalendario.Services
                 this.notes = new Notas();
             }
 
-			//this.notes.Add(new Note(1, "Molestia", "Tengo una molestia en el hombro", new DateTime(2016,12,16)));
-			//this.notes.Add(new Note(2, "Muy bien", "Estoy muy bien", new DateTime(2016,12,17)));
 		}
 
         ~NotesService()
@@ -67,7 +65,7 @@ namespace ModuloCalendario.Services
         }
 
 		public void Remove(Nota note){
-            this.notes.Borrar (note);
+            this.notes.Borrar (note.Id);
 		}
 
 
