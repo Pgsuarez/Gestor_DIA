@@ -66,6 +66,10 @@ namespace ModuloCalendario.Services
             return this.notes.N;
         }
 
+		public void Remove(Nota note){
+            this.notes.Borrar (note);
+		}
+
 
 	}
 }

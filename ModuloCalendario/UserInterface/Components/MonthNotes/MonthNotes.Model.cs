@@ -3,6 +3,7 @@ using Gtk;
 using System.Collections.Generic;
 using ModuloCalendario.Services;
 using ProyectoDIA.Core;
+using ModuloEjercicio.App;
 
 namespace ModuloCalendario.UserInterface.Components
 {
@@ -51,6 +52,19 @@ namespace ModuloCalendario.UserInterface.Components
 			this.CurrentMonth = month;
 			this.UpdateNotes();
 			this.RefreshView ();
+		}
+
+
+		//Copy after this
+		public void Remove(int index){
+			Services.NotesService.Instance.Remove (this.notes [index]);
+			MainWindow.Instance.SetHasChanged ();
+		}
+
+		public void Edit(int index){
+			Nota note = this.notes [index];
+			new NoteFormDialog (note.Id, MainWindow.Instance, DialogFlags.DestroyWithParent);
+			MainWindow.Instance.SetHasChanged ();
 		}
 
 

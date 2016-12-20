@@ -50,6 +50,18 @@ namespace ModuloCalendario.UserInterface.Components
 			this.RefreshView ();
 		}
 
+		//Copy after this
+		public void Remove(int index){
+			Services.NotesService.Instance.Remove (this.notes [index]);
+			MainWindow.Instance.SetHasChanged ();
+		}
+
+		public void Edit(int index){
+			Note note = this.notes [index];
+			new NoteFormDialog (note.Id, MainWindow.Instance, DialogFlags.DestroyWithParent);
+			MainWindow.Instance.SetHasChanged ();
+		}
+
 
 	}
 }

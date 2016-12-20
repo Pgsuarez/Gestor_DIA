@@ -22,5 +22,9 @@ namespace ModuloCalendario.UserInterface
 			this.ShowNoteForm ();
 			this.ChangeDay (this.currentDay);
 		}
+
+		public void SetHasChanged(){
+			this.ChangeDay (this.currentDay);
+		}
 	}
 }

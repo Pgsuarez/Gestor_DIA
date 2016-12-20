@@ -1,7 +1,8 @@
 ﻿using System;
 using ModuloCalendario.DataClasses;
 using System.Collections.Generic;
-namespace ModuloCalendario
+
+namespace ModuloCalendario.Services
 {
 	public class MeasurementsService
 	{
