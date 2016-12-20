@@ -31,6 +31,19 @@ namespace ModuloCalendario.UserInterface.Components
 		{
 			var mainVox = new Gtk.VBox();
 
+			var removeButton = new Gtk.Button (Gtk.Stock.Remove);
+			var editButton = new Gtk.Button (Gtk.Stock.Edit);
+
+			removeButton.Clicked += this.OnClickRemove;
+			editButton.Clicked += this.OnClickEdit;
+
+			var hBox = new Gtk.HBox();
+
+			hBox.PackStart (removeButton, false, false, 0);
+			hBox.PackStart (editButton, false, false, 0);
+
+			mainVox.PackStart (hBox, false, false, 10);
+
 			//List
 			this.notesTreeView = new TreeView(this.notesListStore);
 

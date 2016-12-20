@@ -11,9 +11,16 @@ namespace ModuloCalendario.UserInterface
 		private Components.MonthContent monthContentComponent;
 		private Components.Toolbar toolbarComponent;
 
+		public static MainWindow Instance {
+			get;
+			set;
+		}
+
 
 		public MainWindow() : base(Gtk.WindowType.Toplevel)
 		{
+			MainWindow.Instance = this;
+
 			SetPosition(Gtk.WindowPosition.Center);
 			DeleteEvent += OnDelete;
 			Build();

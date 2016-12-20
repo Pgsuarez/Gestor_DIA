@@ -49,6 +49,10 @@ namespace ModuloCalendario.Services
 			this.notes.Add (note);
 		}
 
+		public void Remove(Note note){
+			this.notes.Remove (note);
+		}
+
 
 	}
 }
