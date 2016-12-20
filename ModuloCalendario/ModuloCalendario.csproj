@@ -87,13 +87,13 @@
     <Compile Include="UserInterface\Components\MonthExercisesGraph\MonthExercises.Events.cs" />
     <Compile Include="UserInterface\Components\MonthExercisesGraph\MonthExercises.Model.cs" />
     <Compile Include="UserInterface\Components\MonthExercisesGraph\MonthExercises.View.cs" />
-    <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasuresEvents.cs" />
     <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasures.Model.cs" />
     <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasures.View.cs" />
     <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasuresEvents.cs" />
     <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasuresModel.cs" />
     <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasures.View.cs" />
     <Compile Include="Services\MeasurementsService.cs" />
+    <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasures.Events.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataClasses\" />

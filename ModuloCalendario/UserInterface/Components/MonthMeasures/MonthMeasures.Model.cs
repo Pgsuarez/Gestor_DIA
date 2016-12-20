@@ -53,6 +53,24 @@ namespace ModuloCalendario.UserInterface.Components
 			this.RefreshView ();
 		}
 
+		//Copy after this
+		public void Remove(int index){
+			Services.MeasurementsService.Instance.Remove (this.measurements [index]);
+			MainWindow.Instance.SetHasChanged ();
+
+		}
+
+		public void Edit(int index){
+			/*DataClasses.Measurements me = this.exercises [index];
+			var dialog = new ExerciseDialog("Edit exercise", MainWindow.Instance, ex);
+			ex = dialog.getResult ();
+			if (ex != null)
+			{
+				Services.MeasurementsService.Instance.Update(ex);
+				MainWindow.Instance.SetHasChanged ();
+			}*/
+		}
+
 
 	}
 }
