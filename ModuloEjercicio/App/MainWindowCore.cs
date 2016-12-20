@@ -23,7 +23,7 @@ namespace ModuloEjercicio.App
 		}
 
 		void OnDialogResponse(object o, ResponseArgs args)
-		{
+		{/*
 			//ResponseType.Accept -> Add new exercise
 			if (args.ResponseId.Equals(ResponseType.Accept))
 			{
@@ -54,7 +54,7 @@ namespace ModuloEjercicio.App
 					store.SetValue(iter, (int)Column.Id, ex.Id);
 				}
 			}
-
+            */
 			//ResponseType.Reject -> Delete exercise
 			if (args.ResponseId.Equals(ResponseType.Reject))
 			{
@@ -68,6 +68,34 @@ namespace ModuloEjercicio.App
 				}
 			}
 		}
+
+        void onAddButtonClicked()
+        {
+            var dialog = new ExerciseDialog("Add exercise", this);
+            Exercise ex = dialog.getResult();
+            if (ex != null)
+            {
+                exerciseService.Add(ex);
+                store.AppendValues(ex.Distance, ex.Minutes, ex.Id);
+            }
+        }
+
+        void onEditButtonClicked()
+        {
+            Exercise ex = exerciseService.Get(1);
+            var dialog = new ExerciseDialog("Edit exercise", this, ex);
+            ex = dialog.getResult();
+            exerciseService.Update(ex);
+
+            TreeIter iter;
+            TreeModel model;
+            if (treeView.Selection.GetSelected(out model, out iter))
+            {
+                store.SetValue(iter, (int)Column.Distance, ex.Distance);
+                store.SetValue(iter, (int)Column.Minutes, ex.Minutes);
+                store.SetValue(iter, (int)Column.Id, ex.Id);
+            }
+        }
 
 		/*
 		void OnRowActivated(object sender, RowActivatedArgs args)

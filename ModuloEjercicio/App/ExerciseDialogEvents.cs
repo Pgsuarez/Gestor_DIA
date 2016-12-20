@@ -14,7 +14,7 @@ namespace ModuloEjercicio.App
 			{
 				var distance = Convert.ToInt32(distanceEntry.Text);
 				var minutes = Convert.ToInt32(minutesEntry.Text);
-                exToRet = new Exercise(distance, minutes);
+                ex = new Exercise(distance, minutes);
 			}
 
 			//ResponseType.Apply -> Edit exercise
@@ -23,8 +23,8 @@ namespace ModuloEjercicio.App
 				var distance = Convert.ToInt32(distanceEntry.Text);
 				var minutes = Convert.ToInt32(minutesEntry.Text);
 
-				exToRet.Distance = distance;
-				exToRet.Minutes = minutes;
+				ex.Distance = distance;
+				ex.Minutes = minutes;
 			}
 		}
 	}

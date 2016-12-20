@@ -9,23 +9,22 @@ namespace ModuloEjercicio.App
         /// <summary>
         /// Creates a new exercise from user input
         /// </summary>
-		public ExerciseDialog(String title, Window parent, out Exercise ex) :
+		/*public ExerciseDialog(String title, Window parent, out Exercise ex) :
                 base(title, parent, Gtk.DialogFlags.DestroyWithParent)
         {
             ex = exToRet = new Exercise(0, 0);
             edit = false;
             this.Build();
-        }
+        }*/
 
         /// <summary>
         /// Updates exercise from user input
         /// param name="ex" The exercise to update
         /// </summary>
-        public ExerciseDialog(String title, Window parent, ref Exercise ex) :
+        public ExerciseDialog(String title, Window parent, Exercise ex = null) :
                 base(title, parent, Gtk.DialogFlags.DestroyWithParent)
         {
-            exToRet = ex;
-            edit = true;
+            this.ex = ex;
             this.Build();
         }
 
@@ -42,11 +41,11 @@ namespace ModuloEjercicio.App
             var lbl1 = new Label("Distance");
             var lbl2 = new Label("Minutes");
 
-            if (exToRet != null)
+            if (ex != null)
             {
-                var selectedEx_Distance = exToRet.Distance;
-                var selectedEx_Minutes = exToRet.Minutes;
-                var selectedEx_Id = exToRet.Id;
+                var selectedEx_Distance = ex.Distance;
+                var selectedEx_Minutes = ex.Minutes;
+                var selectedEx_Id = ex.Id;
 
                 distanceEntry = new Entry(selectedEx_Distance.ToString());
                 minutesEntry = new Entry(selectedEx_Minutes.ToString());
@@ -63,7 +62,7 @@ namespace ModuloEjercicio.App
             row2.Add(lbl2);
             row2.Add(minutesEntry);
 
-            if (exToRet != null)
+            if (ex != null)
             {
                 this.AddButton(Stock.Save, ResponseType.Apply);
             }
@@ -78,8 +77,12 @@ namespace ModuloEjercicio.App
             this.Destroy();
 		}
 
-        private Exercise exToRet;
-        private bool edit;
+        public Exercise getResult()
+        {
+            return ex;
+        }
+
+        private Exercise ex;
 
 		private Entry minutesEntry;
 		private Entry distanceEntry;
