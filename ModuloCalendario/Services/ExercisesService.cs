@@ -45,10 +45,9 @@ namespace ModuloCalendario
             exerciseService.Delete(Id);
         }
 
-		//fake method
-		public List<Exercise> FindAllBetweenDates(DateTime start, DateTime end)
+        public List<Exercise> FindAllBetweenDates(DateTime start, DateTime end)
 		{
-            return FindAll();
+            return FindAll().FindAll(x => (x.Date >= start && x.Date <= end));
 		}
 	}
 }
