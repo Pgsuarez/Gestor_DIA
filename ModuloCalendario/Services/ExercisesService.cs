@@ -1,6 +1,6 @@
 ﻿using System;
-using ModuloCalendario.DataClasses;
 using System.Collections.Generic;
+using ModuloEjercicio.API;
 
 namespace ModuloCalendario
 {
@@ -18,20 +18,37 @@ namespace ModuloCalendario
 			}
 		}
 
-		private List<Exercise> exercises;
+        private ExerciseService exerciseService = ExerciseService.GetInstance();
+		
+        public List<Exercise> FindAll()
+        {
+            return exerciseService.FindAll();
+        }
 
-		private ExercisesService()
-		{
-			this.exercises = new List<Exercise>();
+        public Exercise Get(Int32 Id)
+        {
+            return exerciseService.Get(Id);
+        }
 
-			this.exercises.Add(new Exercise(1, 1, 12, new DateTime(2016, 12, 16)));
-			this.exercises.Add(new Exercise(2, 3, 30, new DateTime(2016, 12, 17)));
-		}
+        public void Add(Exercise Exercise)
+        {
+            exerciseService.Add(Exercise);
+        }
+
+        public void Update(Exercise Exercise)
+        {
+            exerciseService.Update(Exercise);
+        }
+
+        public void Delete(Int32 Id)
+        {
+            exerciseService.Delete(Id);
+        }
 
 		//fake method
 		public List<Exercise> FindAllBetweenDates(DateTime start, DateTime end)
 		{
-			return this.exercises;
+            return FindAll();
 		}
 	}
 }

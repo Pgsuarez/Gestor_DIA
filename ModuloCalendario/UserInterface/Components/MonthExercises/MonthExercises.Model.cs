@@ -1,8 +1,8 @@
 ﻿using System;
 using Gtk;
 using System.Collections.Generic;
-using ModuloCalendario.DataClasses;
 using ModuloCalendario.Services;
+using ModuloEjercicio.API;
 
 namespace ModuloCalendario.UserInterface.Components
 {
