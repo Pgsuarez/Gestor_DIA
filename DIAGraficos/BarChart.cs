@@ -190,6 +190,18 @@ namespace Charts
 		}
 
 		/// <summary>
+		/// Clear graphic Values
+		/// </summary>
+		public void Clear()
+		{
+			data = new Dictionary<string, List<BarData>>();
+
+			data.Add("Default", new List<BarData>());
+
+			ColorSets = new Dictionary<string, Cairo.Color>();
+		}
+
+		/// <summary>
 		/// Resturns a List of data from the Default Set.
 		/// </summary>
 		/// <returns>The data values.</returns>

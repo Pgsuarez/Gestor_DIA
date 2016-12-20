@@ -174,7 +174,7 @@ namespace Charts
 		/// Id Set doesnt exist, will be created.
 		/// </summary>
 		/// <param name="ld">Line data to Add</param>
-		public void AddData(LineData ld, String Id)
+		public void AddData(LineData ld, string Id)
 		{
 			if (!data.Keys.Contains(Id))
 			{
@@ -189,6 +189,7 @@ namespace Charts
 			List<LineData> lista = GetDataValues(Id);
 			lista.Add(ld);
 			data[Id].Sort();
+			drawingArea.QueueDraw();
 		}
 
 
@@ -212,6 +213,18 @@ namespace Charts
 			{
 				lista.Remove(ld);
 			}
+		}
+
+
+		/// <summary>
+		/// Clear graphic Values
+		/// </summary>
+		public void Clear()
+		{
+			data = new Dictionary<string, List<LineData>>();
+
+			data.Add("Default", new List<LineData>());
+			ColorSets = new Dictionary<string, Cairo.Color>();
 		}
 
 		/// <summary>

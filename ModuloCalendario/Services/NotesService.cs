@@ -24,15 +24,29 @@ namespace ModuloCalendario.Services
 		{
 			this.notes = new List<Note>();
 
-			this.notes.Add(new Note(0, "This exercise is supeasy", 0, DateTime.Now));
-			this.notes.Add(new Note(1, "This exercise is easy", 1, DateTime.Now));
-			this.notes.Add(new Note(2, "This exercise is hard", 2, DateTime.Now));
+			this.notes.Add(new Note(1, "Molestia", "Tengo una molestia en el hombro", new DateTime(2016,12,16)));
+			this.notes.Add(new Note(2, "Muy bien", "Estoy muy bien", new DateTime(2016,12,17)));
 		}
 
 		//fake method
 		public List<Note> FindAllBetweenDates(DateTime start, DateTime end)
 		{
 			return this.notes;
+		}
+
+		//fake method
+		public Note FindById(int id){
+			return this.notes [0];
+		}
+
+		//fake method
+		public void Save(Note note){
+			this.notes.Add (note);
+		}
+
+		//fake method
+		public void Update(Note note){
+			this.notes.Add (note);
 		}
 
 

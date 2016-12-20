@@ -14,5 +14,9 @@ namespace ModuloCalendario.UserInterface.Components
 				DaySelected(sender, e);
 			}
 		}
+
+		private void OnViewBuilt(){
+			this.calendarWidget.DaySelected += this.OnDaySelected;
+		}
 	}
 }

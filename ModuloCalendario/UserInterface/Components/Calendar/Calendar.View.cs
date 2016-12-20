@@ -19,10 +19,10 @@ namespace ModuloCalendario.UserInterface.Components
 			this.calendarTitle = new Gtk.Label("Calendar");
 			this.calendarWidget = new Gtk.Calendar();
 
-			this.calendarWidget.DaySelected += OnDaySelected;
-
 			PackStart(this.calendarTitle, false, true, 5);
 			PackStart(this.calendarWidget, true, true, 5);
+
+			this.OnViewBuilt ();
 		}
 
 
