@@ -56,7 +56,7 @@ namespace ModuloCalendario.UserInterface.Components
 			cont.PackStart(rbWeight);
 			cont.Add(rbAC);
 
-			mainVox.PackStart(cont, true, true, 0);
+			mainVox.PackStart(cont, false, false, 0);
 			mainVox.Add(lc);
 
 
