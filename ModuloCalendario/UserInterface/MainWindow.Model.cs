@@ -23,6 +23,12 @@ namespace ModuloCalendario.UserInterface
 			this.ChangeDay (this.currentDay);
 		}
 
+		private void CreateMeasure()
+		{
+			this.ShowMeasureForm();
+			this.ChangeDay(this.currentDay);
+		}
+
 		public void SetHasChanged(){
 			this.ChangeDay (this.currentDay);
 		}

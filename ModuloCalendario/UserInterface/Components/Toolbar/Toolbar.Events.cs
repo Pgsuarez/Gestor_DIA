@@ -6,6 +6,7 @@ namespace ModuloCalendario.UserInterface.Components
 	{
 		public event EventHandler NewNoteClicked;
 		public event EventHandler NewExerciseClicked;
+		public event EventHandler NewMeasureClicked;
 
 		private void OnViewBuilt(){
 			this.RefreshView ();
@@ -20,6 +21,14 @@ namespace ModuloCalendario.UserInterface.Components
 		private void OnNewExerciseClicked(object sender, EventArgs e){
 			if (this.NewExerciseClicked != null) {
 				this.NewExerciseClicked (sender, e);
+			}
+		}
+
+		private void OnNewMeasureClicked(object sender, EventArgs e)
+		{
+			if (this.NewMeasureClicked != null)
+			{
+				this.NewMeasureClicked(sender, e);
 			}
 		}
 	}

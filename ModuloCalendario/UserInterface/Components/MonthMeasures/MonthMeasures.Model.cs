@@ -61,14 +61,9 @@ namespace ModuloCalendario.UserInterface.Components
 		}
 
 		public void Edit(int index){
-			/*DataClasses.Measurements me = this.exercises [index];
-			var dialog = new ExerciseDialog("Edit exercise", MainWindow.Instance, ex);
-			ex = dialog.getResult ();
-			if (ex != null)
-			{
-				Services.MeasurementsService.Instance.Update(ex);
-				MainWindow.Instance.SetHasChanged ();
-			}*/
+			Measurements measure = this.measurements[index];
+			new MeasureFormDialog(measure.Id, MainWindow.Instance, DialogFlags.DestroyWithParent);
+			MainWindow.Instance.SetHasChanged();
 		}
 
 

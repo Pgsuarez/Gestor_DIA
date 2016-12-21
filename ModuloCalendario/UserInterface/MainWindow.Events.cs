@@ -35,5 +35,10 @@ namespace ModuloCalendario.UserInterface
                 ChangeDay(currentDay);
             }
 		}
+
+		private void OnNewMeasureClicked(object o, EventArgs e)
+		{
+			this.CreateMeasure();
+		}
 	}
 }

@@ -8,13 +8,19 @@ namespace ModuloMedidas
 	public class Medidas
 	{
 
-		public Medidas(float p,float ca, DateTime f){
+		public Medidas(int id, float p,float ca, DateTime f){
+			this.Id = id;
 			this.Peso = p;
 			this.CircunferenciaAbdominal = ca;
 			this.Fecha = f;
 		}
 
 		public DateTime Fecha {
+			get;
+			set;
+		}
+		public int Id
+		{
 			get;
 			set;
 		}
@@ -29,7 +35,7 @@ namespace ModuloMedidas
 			set;
 		}
 
-		public void Guardar(){
+		/*public void Guardar(){
 			var med = new XElement ("medidas",
 				          new XElement ("peso", Peso),
 				          new XElement ("circunferenciaabdominal", CircunferenciaAbdominal),
@@ -42,7 +48,7 @@ namespace ModuloMedidas
 			this.Peso = float.Parse (med.Element ("medidas").Element ("peso").ToString());
 			this.CircunferenciaAbdominal = float.Parse (med.Element ("medidas").Element ("circunferenciaabdominal").ToString());
 			this.Fecha = DateTime.Parse (med.Element ("medidas").Element ("fecha").ToString());
-		}
+		}*/
 
 		public override string ToString ()
 		{

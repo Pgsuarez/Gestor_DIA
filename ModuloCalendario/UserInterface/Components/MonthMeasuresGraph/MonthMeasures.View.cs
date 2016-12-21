@@ -35,12 +35,12 @@ namespace ModuloCalendario.UserInterface.Components
 			//List
 			this.lc = new LineChart("Weigth");
 			lc.XLabel = "Day";
-
+			lc.FixedX = true;
 			lc.YLabel = "Kg";
 
 			lc.MinXValue = 1;
 			lc.MaxXValue = 30;
-			lc.XResolution = 1;
+			lc.XResolution = (int)(lc.MaxXValue-1);
 
 
 
@@ -82,7 +82,7 @@ namespace ModuloCalendario.UserInterface.Components
 
 			lc.MinXValue = 1;
 			lc.MaxXValue = 30;
-			lc.XResolution = 1;
+			lc.XResolution = (int)(lc.MaxXValue-1);
 
 		}
 
@@ -95,7 +95,7 @@ namespace ModuloCalendario.UserInterface.Components
 
 			lc.MinXValue = 1;
 			lc.MaxXValue = 30;
-			lc.XResolution = 1;
+			lc.XResolution = (int)(lc.MaxXValue-1);
 		}
 
 		private void ShowMeasure(int index, int w, int ac, int day){

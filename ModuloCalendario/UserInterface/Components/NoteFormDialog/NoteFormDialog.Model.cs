@@ -33,6 +33,7 @@ namespace ModuloCalendario.UserInterface.Components
 		private void FetchNote(){
 			if (this.noteId != -1) {
 				this.note = NotesService.Instance.FindById (this.noteId);
+				Console.WriteLine("refrescando"+note.Titulo);
 			}
 		}
 	}

@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using System.IO;
 
 namespace ModuloMedidas
 {
 	public class ListaMedidas
 	{
-		private List<Medidas> listaMedidas=new List<Medidas>();
+		private List<Medidas> listaMedidas;
 
 		public ListaMedidas ()
 		{
+			listaMedidas = new List<Medidas>();
+			this.Recuperar();
 		}
 
 		public List<Medidas> getListaMedidas(){
@@ -19,10 +22,12 @@ namespace ModuloMedidas
 
 		public void setListaMedidas(List<Medidas> lm){
 			this.listaMedidas = lm;
+			Guardar();
 		}
 
 		public void Add(Medidas m){
 			this.listaMedidas.Add (m);
+			Guardar();
 		}
 
 		public void Guardar(){
@@ -34,6 +39,9 @@ namespace ModuloMedidas
 			foreach(var m in this.listaMedidas) {
 				doc.WriteStartElement( "medidas" );
 
+				doc.WriteStartElement("id");
+				doc.WriteString(m.Id.ToString());
+				doc.WriteEndElement();
 				doc.WriteStartElement( "fecha" );
 				doc.WriteString( m.Fecha.ToString() );
 				doc.WriteEndElement();
@@ -58,25 +66,53 @@ namespace ModuloMedidas
 		public void Recuperar(){
 			var docXml = new XmlDocument( );
 
-			docXml.Load ("listamedidas.xml");
-			foreach (XmlNode nodo in docXml.DocumentElement.ChildNodes) {
-				if (nodo.Name == "medidas") {
-					StringBuilder p=new StringBuilder();
-					StringBuilder ca=new StringBuilder();
-					StringBuilder f=new StringBuilder();
-					foreach (XmlNode child in nodo.ChildNodes) {
-						if (child.Name == "peso") {
-							p.Append( child.InnerText);
-						} else if (child.Name == "circunferenciaabdominal") {
-							ca.Append(child.InnerText);
-						} else if (child.Name == "fecha") {
-							f.Append(child.InnerText);
+			try
+			{
+				docXml.Load("listamedidas.xml");
+				foreach (XmlNode nodo in docXml.DocumentElement.ChildNodes)
+				{
+					if (nodo.Name == "medidas")
+					{
+						StringBuilder p = new StringBuilder();
+						StringBuilder ca = new StringBuilder();
+						StringBuilder f = new StringBuilder();
+						StringBuilder id = new StringBuilder();
+
+						foreach (XmlNode child in nodo.ChildNodes)
+						{
+							if (child.Name == "peso")
+							{
+								p.Append(child.InnerText);
+							}
+							else if (child.Name == "circunferenciaabdominal")
+							{
+								ca.Append(child.InnerText);
+							}
+							else if (child.Name == "fecha")
+							{
+								f.Append(child.InnerText);
+							}
+							else if (child.Name == "id")
+							{
+								id.Append(child.InnerText);
+							}
 						}
+						this.Add(new Medidas(int.Parse(id.ToString()), float.Parse(p.ToString()), float.Parse(ca.ToString()), DateTime.Parse(f.ToString())));
 					}
-					this.Add (new Medidas (float.Parse (p.ToString ()), float.Parse (ca.ToString ()), DateTime.Parse (f.ToString ())));
 				}
+
+			}
+			catch (FileNotFoundException e)
+			{
 			}
 		}
+
+		public void Remove(int id)
+		{
+			this.listaMedidas.RemoveAt(id);
+			this.Guardar();
+		}
+
 
 		public override string ToString ()
 		{

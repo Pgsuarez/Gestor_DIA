@@ -40,6 +40,7 @@ namespace ModuloCalendario.UserInterface
 
 			this.toolbarComponent.NewNoteClicked += this.OnNewNoteClicked;
 			this.toolbarComponent.NewExerciseClicked += this.OnNewExerciseClicked;
+			this.toolbarComponent.NewMeasureClicked += this.OnNewMeasureClicked;
 
 
 			this.calendarComponent.DaySelected += OnDaySelected;
@@ -65,6 +66,11 @@ namespace ModuloCalendario.UserInterface
 
 		private void ShowNoteForm(){
 			var noteForm = new Components.NoteFormDialog (this, Gtk.DialogFlags.DestroyWithParent);
+		}
+
+		private void ShowMeasureForm()
+		{
+			var measureForm = new Components.MeasureFormDialog(this, Gtk.DialogFlags.DestroyWithParent);
 		}
 	}
 }

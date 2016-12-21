@@ -1,6 +1,10 @@
 ﻿using System;
 using ModuloCalendario.DataClasses;
+
+using System.Collections;
 using System.Collections.Generic;
+
+using ModuloMedidas;
 
 namespace ModuloCalendario.Services
 {
@@ -20,39 +24,56 @@ namespace ModuloCalendario.Services
 			}
 		}
 
-		private List<Measurements> measurements;
+		private ListaMedidas measurements;
 
 
 		private MeasurementsService()
 		{
-			this.measurements = new List<Measurements>();
-
-			this.measurements.Add(new Measurements(1, 1, 12, new DateTime(2016, 12, 16)));
-			this.measurements.Add(new Measurements(2, 3, 30, new DateTime(2016, 12, 17)));
+			this.measurements = new ListaMedidas();
 		}
 
 		public List<Measurements> FindAllBetweenDates(DateTime start, DateTime end)
 		{
-			return this.measurements.FindAll(x => (x.Date >= start && x.Date <= end));
+			
+			return Adapter(this.measurements.getListaMedidas().FindAll(x => (x.Fecha >= start && x.Fecha <= end)));
 		}
+
+		private List<Measurements> Adapter(List<Medidas> list)
+		{
+			List<Measurements> toret = new List<Measurements>();
+
+			foreach (Medidas m in list)
+				toret.Add(new Measurements(m));
+
+			return toret;
+		}
+
 
 		//fake method
 		public Measurements FindById(int id){
-			return this.measurements [0];
+			int index = this.measurements.getListaMedidas().FindIndex(x => x.Id == id);
+			return ((index != -1)? new Measurements( this.measurements.getListaMedidas()[index]) : null);
 		}
 
 		//fake method
 		public void Save(Measurements mea){
-			this.measurements.Add (mea);
+			mea.Id = measurements.getListaMedidas().Count;
+			measurements.Add(new Medidas(mea.Id, mea.Weight, mea.AbdominalCircunference, mea.Date));
 		}
 
 		//fake method
 		public void Update(Measurements mea){
-			this.measurements.Add (mea);
+
+			if (mea.Id >= 0)
+			{
+				this.measurements.Remove(mea.Id);
+				this.measurements.Add(new Medidas(mea.Id, mea.Weight, mea.AbdominalCircunference, mea.Date));
+			}
 		}
 
 		public void Remove(Measurements mea){
-			this.measurements.Remove (mea);
+			if(mea.Id >= 0)
+			this.measurements.Remove (mea.Id);
 		} 
 	}
 }

@@ -129,6 +129,8 @@ namespace Charts
 			get;
 			set;
 		}
+		public bool FixedX { get; set; }
+
 		/// <summary>
 		/// Relation bettewn pixel and axis values
 		/// </summary>
@@ -156,7 +158,7 @@ namespace Charts
 
 			this.InitializeComponents();
 			this.Build();
-
+			FixedX = false;
 			this.ShowAll();
 		}
 
@@ -378,10 +380,14 @@ namespace Charts
 				drawingArea.GdkWindow.GetSize(out width, out height);
 				double Xdiference = (MaxXValue - MinXValue) * 0.25;
 				double Ydiference = (MaxYValue - MinYValue) * 0.25;
-				MaxXValue += Xdiference;
+				if (!FixedX)
+				{
+					MaxXValue += Xdiference;
+					//MinXValue -= Xdiference;
+				}
 				MaxYValue += Ydiference;
-				MinXValue -= Xdiference;
-				MinYValue -= Ydiference;
+				//MinYValue -= Ydiference;
+
 				drawingArea.QueueDraw();
 			};
 			zoomIN.SetSizeRequest(20, 20);
@@ -393,10 +399,14 @@ namespace Charts
 				drawingArea.GdkWindow.GetSize(out width, out height);
 				double Xdiference = (MaxXValue - MinXValue) * 0.25;
 				double Ydiference = (MaxYValue - MinYValue) * 0.25;
-				MaxXValue -= Xdiference;
+				if (!FixedX)
+				{
+					MaxXValue -= Xdiference;
+					//MinXValue += Xdiference;
+				}
 				MaxYValue -= Ydiference;
-				MinXValue += Xdiference;
-				MinYValue += Ydiference;
+				//MinYValue += Ydiference;
+
 				drawingArea.QueueDraw();
 			};
 			zoomOut.SetSizeRequest(20, 20);
@@ -408,7 +418,11 @@ namespace Charts
 			{
 				if (this.XResolution > 2)
 				{
-					XResolution--;
+					if (!FixedX)
+					{
+						XResolution--;
+					}
+
 					YResolution--;
 					drawingArea.QueueDraw();
 				}
@@ -417,7 +431,10 @@ namespace Charts
 			masRes = new Button(">");
 			masRes.Clicked += (sender, e) =>
 			{
-				XResolution++;
+				if (!FixedX)
+				{
+					XResolution++;
+				}
 				YResolution++;
 				drawingArea.QueueDraw();
 			};
@@ -447,8 +464,12 @@ namespace Charts
 					{
 						if (primero)
 						{
-							MinXValue = ld.X;
-							MaxXValue = ld.X;
+							if (!FixedX)
+							{
+								MinXValue = ld.X;
+								MaxXValue = ld.X;
+							}
+
 							MinYValue = ld.Y;
 							MaxYValue = ld.Y;
 							primero = false;

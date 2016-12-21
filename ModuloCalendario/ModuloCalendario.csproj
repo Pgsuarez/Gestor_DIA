@@ -93,6 +93,9 @@
     <Compile Include="UserInterface\Components\MonthMeasuresGraph\MonthMeasures.View.cs" />
     <Compile Include="Services\MeasurementsService.cs" />
     <Compile Include="UserInterface\Components\MonthMeasures\MonthMeasures.Events.cs" />
+    <Compile Include="UserInterface\Components\MeasureFormDialog\MeasureDialog.Events.cs" />
+    <Compile Include="UserInterface\Components\MeasureFormDialog\MeasureDialog.Model.cs" />
+    <Compile Include="UserInterface\Components\MeasureFormDialog\MeasureDialog.View.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataClasses\" />
@@ -112,6 +115,7 @@
     <Folder Include="UserInterface\Components\MonthExercisesGraph\" />
     <Folder Include="UserInterface\Components\MonthMeasures\" />
     <Folder Include="UserInterface\Components\MonthMeasuresGraph\" />
+    <Folder Include="UserInterface\Components\MeasureFormDialog\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DIAGraficos\DIAGraficos.csproj">
@@ -125,6 +129,10 @@
     <ProjectReference Include="..\Notas\Notas.csproj">
       <Project>{4B6A13AD-10CD-42C8-87C4-EB51D33A5750}</Project>
       <Name>Notas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModuloMedidas\ModuloMedidas.csproj">
+      <Project>{17771AE0-12F7-4DFF-B7A1-9DB9049D3620}</Project>
+      <Name>ModuloMedidas</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

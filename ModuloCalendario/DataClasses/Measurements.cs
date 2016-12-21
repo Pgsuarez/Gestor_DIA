@@ -1,5 +1,5 @@
 ﻿using System;
-
+using ModuloMedidas;
 namespace ModuloCalendario.DataClasses
 {
 	public class Measurements
@@ -10,6 +10,13 @@ namespace ModuloCalendario.DataClasses
 			this.Weight = weight;
 			this.AbdominalCircunference = abdominalCircunference;
 			this.Date = date;
+		}
+		public Measurements(Medidas med)
+		{
+			this.Id = med.Id;
+			this.Weight = (int)med.Peso;
+			this.AbdominalCircunference = (int) med.CircunferenciaAbdominal;
+			this.Date = med.Fecha;
 		}
 
 		public Int32 Id { get;set; }

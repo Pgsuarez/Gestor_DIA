@@ -2,24 +2,24 @@
 using Gtk;
 namespace ModuloCalendario.UserInterface.Components
 {
-	public partial class NoteFormDialog : Gtk.Dialog
+	public partial class MeasureFormDialog : Gtk.Dialog
 	{
-		private Entry titleEntry;
-		private Entry bodyEntry;
+		private Entry weightEntry;
+		private Entry acEntry;
 		private Gtk.Calendar dateEntry;
 
-		public NoteFormDialog(Gtk.Window parent, Gtk.DialogFlags flags) :
-			base("Create note", parent, flags)
+		public MeasureFormDialog(Gtk.Window parent, Gtk.DialogFlags flags) :
+			base("Insert measure", parent, flags)
 		{
 			this.OnCreate ();
 			this.BuildDialog ();
 		}
 
-		public NoteFormDialog(int noteId, Gtk.Window parent, Gtk.DialogFlags flags) :
-		base("Edit note"+noteId, parent, flags)
+		public MeasureFormDialog(int measureId, Gtk.Window parent, Gtk.DialogFlags flags) :
+		base("Edit Measure"+measureId, parent, flags)
 		{
 			this.OnCreate ();
-			this.OnReceivedNoteId(noteId);
+			this.OnReceivedMeasured(measureId);
 
 			this.BuildDialog();
 		}
@@ -36,19 +36,19 @@ namespace ModuloCalendario.UserInterface.Components
 			this.VBox.Add(row2);
 			this.VBox.PackEnd(row3);
 
-			var lbl1 = new Label("Title");
-			var lbl2 = new Label("Body");
+			var lbl1 = new Label("Weight");
+			var lbl2 = new Label("Barriga Perimeter");
 			var lbl3 = new Label("Date");
 
-			this.titleEntry = new Entry();
-			this.bodyEntry = new Entry();
+			this.weightEntry = new Entry();
+			this.acEntry = new Entry();
 			this.dateEntry = new Gtk.Calendar();
 
 			row1.PackStart(lbl1,false,false,5);
-			row1.Add(this.titleEntry);
+			row1.Add(this.weightEntry);
 
 			row2.PackStart(lbl2, false, false, 5);
-			row2.Add(this.bodyEntry);
+			row2.Add(this.acEntry);
 
 			row3.PackStart(lbl3, false, false, 5);
 			row3.Add(this.dateEntry);
@@ -67,15 +67,15 @@ namespace ModuloCalendario.UserInterface.Components
 			this.Destroy();
 		}
 
-		private void ShowTitle(string title){
-			this.titleEntry.Text = title;
-			Console.WriteLine("Añadiendo TITULO : " + title);
+		private void ShowWeight(int w){
+			this.weightEntry.Text = w.ToString();
+			Console.WriteLine("Añadiendo peso : " + w);
 		}
 
-		private void ShowBody(string body){
-			this.bodyEntry.Text = body;
+		private void ShowAC(int ac){
+			this.acEntry.Text = ac.ToString();
 
-			Console.WriteLine("Añadiendo BOdy : " + body);
+			Console.WriteLine("Añadiendo Circunference : " + ac);
 		}
 
 		private void ShowDate(DateTime date){

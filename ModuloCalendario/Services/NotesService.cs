@@ -52,6 +52,8 @@ namespace ModuloCalendario.Services
 		}
 
 		public void Save(Nota note){
+			//APAÑO
+			note.Id = this.notes.count;
             this.notes.anadir (note);
 		}
 
