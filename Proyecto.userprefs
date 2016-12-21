@@ -1,5 +1,5 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupConfiguration="{16024BB4-0BE4-4C66-8446-72DDCB00178A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasures.View.cs">
     <Files>
       <File FileName="ModuloMedidas/ListaMedidas.cs" Line="107" Column="5" />
       <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasures/MonthMeasures.View.cs" Line="36" Column="38" />
@@ -9,6 +9,9 @@
       <File FileName="ModuloCalendario/UserInterface/Components/MeasureFormDialog/MeasureDialog.Events.cs" Line="20" Column="55" />
       <File FileName="ModuloCalendario/Services/MeasurementsService.cs" Line="71" Column="5" />
       <File FileName="ModuloCalendario/UserInterface/Components/NoteFormDialog/NoteFormDialog.View.cs" Line="67" Column="19" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresModel.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasuresEvents.cs" Line="1" Column="1" />
+      <File FileName="ModuloCalendario/UserInterface/Components/MonthMeasuresGraph/MonthMeasures.View.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />

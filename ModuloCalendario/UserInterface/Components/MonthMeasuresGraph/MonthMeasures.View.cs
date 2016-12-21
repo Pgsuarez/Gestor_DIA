@@ -101,13 +101,14 @@ namespace ModuloCalendario.UserInterface.Components
 		private void ShowMeasure(int index, int w, int ac, int day){
 			if (weightGraph)
 			{
-				Console.WriteLine("peso");
-				this.lc.AddData(new LineData(w, day), "Weight");
+				Console.WriteLine("peso:"+day);
+				this.lc.AddData(new LineData(day, w), "Weight");
+
 			}
 			else
 			{
-				Console.WriteLine("abc");
-				this.lc.AddData(new LineData(ac, day), "Abd. Circ.");
+				Console.WriteLine("abc"+day);
+				this.lc.AddData(new LineData(day, ac), "Abd. Circ.");
 			}
 		}
 	}
