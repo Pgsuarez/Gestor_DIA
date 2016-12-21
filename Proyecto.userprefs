@@ -1,8 +1,18 @@
-﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+﻿<Properties StartupConfiguration="{910BC21A-8F7A-46C9-B021-84489748A568}|Default" StartupItem="DIAGraficos/DIAGraficos.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ModuloMedidas/UserInterface/MedidasWindowCore.cs">
+    <Files>
+      <File FileName="ModuloMedidas/Main.cs" Line="21" Column="3" />
+      <File FileName="ModuloMedidas/UserInterface/MedidasWindowView.cs" Line="70" Column="44" />
+      <File FileName="ModuloMedidas/Medidas.cs" Line="1" Column="1" />
+      <File FileName="ModuloMedidas/UserInterface/MedidasWindowCore.cs" Line="55" Column="6" />
+      <File FileName="ModuloMedidas/ListaMedidas.cs" Line="31" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.MainApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DIAGraficos PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

@@ -34,9 +34,27 @@
     <Compile Include="ListaMedidas.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Medidas.cs" />
+    <Compile Include="UserInterface\MedidasWindowView.cs" />
+    <Compile Include="UserInterface\MedidasWindowCore.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Cairo" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserInterface\" />
   </ItemGroup>
 </Project>

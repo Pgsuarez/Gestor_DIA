@@ -21,6 +21,21 @@ namespace ModuloMedidas
 			this.listaMedidas = lm;
 		}
 
+		public Medidas get(string f){
+			return listaMedidas.Find (m => m.Fecha.ToString().Equals (f));
+		}
+
+		public void guardarCambios(Medidas m,string f){
+			Medidas auxMed = listaMedidas.Find (x => x.Fecha.ToString().Equals (f));
+			this.listaMedidas.Remove (auxMed);
+			this.listaMedidas.Add (m);
+		}
+
+		public void Borrar(string f){
+			Medidas auxMed = listaMedidas.Find (x => x.Fecha.ToString().Equals (f));
+			this.listaMedidas.Remove (auxMed);
+		}
+
 		public void Add(Medidas m){
 			this.listaMedidas.Add (m);
 		}
