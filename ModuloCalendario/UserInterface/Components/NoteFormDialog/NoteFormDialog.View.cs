@@ -16,7 +16,7 @@ namespace ModuloCalendario.UserInterface.Components
 		}
 
 		public NoteFormDialog(int noteId, Gtk.Window parent, Gtk.DialogFlags flags) :
-		base("Edit note"+noteId, parent, flags)
+		base("Edit note", parent, flags)
 		{
 			this.OnCreate ();
 			this.OnReceivedNoteId(noteId);

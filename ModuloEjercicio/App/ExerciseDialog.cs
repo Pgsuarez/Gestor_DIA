@@ -42,8 +42,8 @@ namespace ModuloEjercicio.App
             }
             else
             {
-                distanceEntry = new Entry();
-                minutesEntry = new Entry();
+                distanceEntry = new Entry("0");
+                minutesEntry = new Entry("0");
                 dateEntry = new Calendar();
             }
 

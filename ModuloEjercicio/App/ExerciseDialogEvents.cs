@@ -9,7 +9,7 @@ namespace ModuloEjercicio.App
 	{
 		void OnDialogResponse(object o, ResponseArgs args)
 		{
-            if (!args.ResponseId.Equals(ResponseType.Cancel))
+            if (!args.ResponseId.Equals(ResponseType.Cancel) && !args.ResponseId.Equals(ResponseType.DeleteEvent))
             {
                 var distance = Convert.ToInt32(distanceEntry.Text);
                 var minutes = Convert.ToInt32(minutesEntry.Text);
